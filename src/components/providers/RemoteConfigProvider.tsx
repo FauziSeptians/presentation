@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useRemoteConfigs } from '@/hooks/useRemoteConfigs';
 import { useRemoteConfigStore } from '@/stores/useRemoteConfigStore';
@@ -9,12 +9,15 @@ type Props = {
 };
 
 export function RemoteConfigProvider({ children }: Props) {
-  const { data, isLoading } = useRemoteConfigs(['banner']);
+  const { data, isLoading } = useRemoteConfigs(['portofolio', 'musicPlayer']);
+  console.log(data);
   const setData = useRemoteConfigStore((s) => s.setData);
   const setLoading = useRemoteConfigStore((s) => s.setLoading);
 
+  console.log('data', data);
+
   useEffect(() => {
-    setLoading(isLoading);
+    setLoading(false);
     if (data) setData(data);
   }, [data, isLoading, setData, setLoading]);
 
