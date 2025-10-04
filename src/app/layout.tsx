@@ -1,23 +1,21 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import './globals.css';
 import ReactQueryProvider from '@/components/providers/ReactQueryProvider';
 import { classNames } from '@/utils/classNames';
 import { RemoteConfigProvider } from '@/components/providers/RemoteConfigProvider';
+import { SmoothCursor } from '@/components/ui/smooth-cursor';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const poppins = Poppins({
+  variable: '--font-poppins',
   subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '600', '700'], // tambahkan variasi berat jika perlu
 });
 
 export const metadata: Metadata = {
-  title: 'FE BOILERPLATE',
-  description: 'Optimizing your process',
+  title: 'Portofolio',
+  description: 'Portofolio pribadi dengan gaya modern dan bersih',
 };
 
 export default function RootLayout({
@@ -27,16 +25,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={classNames(
-          `${geistSans.variable}`,
-          `${geistMono.variable}`,
-          'antialiased'
-        )}
-      >
+      <body className={classNames(poppins.variable, 'antialiased')}>
         <ReactQueryProvider>
           <RemoteConfigProvider>{children}</RemoteConfigProvider>
         </ReactQueryProvider>
+        <SmoothCursor />
       </body>
     </html>
   );

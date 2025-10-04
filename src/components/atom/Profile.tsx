@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { HyperText } from '../ui/hyper-text';
 
 export type ProfileProps = {
   name: string;
@@ -8,21 +9,22 @@ export type ProfileProps = {
 };
 
 export default function Profile({ name, img, role, age }: ProfileProps) {
+  const names = `Hi, I'M ${name}`;
   return (
-    <div className="flex items-center justify-center gap-4">
-      <Image
-        src={img ?? "./assets/profile.jpg"}
-        alt={name}
-        width={150}
-        height={150}
-        className="rounded-full"
-      ></Image>
-      <div className="flex flex-col gap-3">
-        <div>
-          <h1 className="text-2xl font-semibold">{name}</h1>
-          <p className="text-md">{age} Yo</p>
+    <div className="flex w-full items-center justify-between gap-4 text-white">
+      <div className="flex w-full max-w-lg flex-col gap-6">
+        <div className="flex flex-col gap-3">
+          <HyperText className="!text-md !tracking-widest !uppercase">
+            {names}
+          </HyperText>
+          <p className="text-7xl font-semibold uppercase">I&apos;M A {role}</p>
         </div>
-        <p className="text-md">{role}</p>
+        <p className="text-justify opacity-70">
+          I&apos;m Muhammad Fauzi Septiana Putra, a passionate Software Developer
+          with a keen eye for design and user experience. This space reflects my
+          journey through code and creativity, blending functionality with
+          aesthetics to build meaningful digital experiences.
+        </p>
       </div>
     </div>
   );
