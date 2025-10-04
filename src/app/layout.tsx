@@ -5,6 +5,7 @@ import ReactQueryProvider from '@/components/providers/ReactQueryProvider';
 import { classNames } from '@/utils/classNames';
 import { RemoteConfigProvider } from '@/components/providers/RemoteConfigProvider';
 import { SmoothCursor } from '@/components/ui/smooth-cursor';
+import SimpleVideoPlayer from '@/components/atom/SimpleVideoPlayer';
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -30,6 +31,7 @@ export default function RootLayout({
           <RemoteConfigProvider>{children}</RemoteConfigProvider>
         </ReactQueryProvider>
         <SmoothCursor />
+        <SimpleVideoPlayer />
       </body>
     </html>
   );
