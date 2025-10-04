@@ -23,6 +23,16 @@ const SimpleVideoPlayer = () => {
       thumbnail: '/nadhif.jpg',
     },
     {
+      title: 'Lihat Kebunku (Taman Bunga)',
+      src: '/jeje.mp4',
+      thumbnail: '/jeje.jpg',
+    },
+    {
+      title: 'Sembilan nyawa',
+      src: '/iki.mp4',
+      thumbnail: '/iki.jpg',
+    },
+    {
       title: 'Hearthbreak Anniversary',
       src: '/hearthbreak.mp4',
       thumbnail: '/hearthbreak.jpg',

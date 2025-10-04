@@ -13,7 +13,7 @@ export default function ProfileTemplates() {
   };
 
   return (
-    <div className="flex w-full items-center justify-between px-6 py-10 my-24">
+    <div className="flex w-full items-center justify-between px-6 py-10">
       <Profile
         name={profileData.name}
         img={profileData.img}
