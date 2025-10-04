@@ -14,7 +14,7 @@ export default function SocialMediaTemplates() {
     <>
       <div className="flex h-96 items-center px-6 justify-between">
         <h1 className="flex flex-col text-4xl font-bold tracking-tighter md:text-5xl lg:text-7xl text-white">
-          Our <AuroraText>Social Media</AuroraText>{' '}
+          My <AuroraText>Social Media</AuroraText>{' '}
         </h1>
         <SocialMedia
           email={credValue?.email}
