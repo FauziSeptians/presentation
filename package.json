@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "dotenv -e .env.local -- next dev --turbopack",
+    "staging": "dotenv -e .env.staging -- next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
@@ -20,6 +21,7 @@
     "react-dom": "19.1.0",
     "react-hook-form": "^7.62.0",
     "zod": "^4.1.8",
+    "zsanss-ui": "^1.0.5",
     "zustand": "^5.0.8"
   },
   "devDependencies": {
@@ -28,6 +30,7 @@
     "@types/node": "^20.19.13",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv-cli": "^10.0.0",
     "eslint": "^9",
     "eslint-config-next": "15.5.3",
     "husky": "^9.1.7",
