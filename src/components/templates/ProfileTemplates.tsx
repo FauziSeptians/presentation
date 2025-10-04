@@ -12,13 +12,6 @@ export default function ProfileTemplates() {
     age: 22,
   };
 
-  const credValue: CredentialsProps = {
-    env: process.env.NEXT_PUBLIC_ENV ?? '',
-    website: process.env.NEXT_PUBLIC_WEBSITE ?? '',
-    phoneNumber: process.env.NEXT_PUBLIC_PHONE_NUMBER ?? '',
-    email: process.env.NEXT_PUBLIC_EMAIL ?? '',
-  };
-
   return (
     <div className="flex w-full items-center justify-between px-6 py-10 my-24">
       <Profile
@@ -33,7 +26,7 @@ export default function ProfileTemplates() {
           alt="zoro"
           width={490}
           height={400}
-          className="absolute z-50"
+          className="absolute z-30"
         />
         <Image
           src="/assets/circle.png"

@@ -1,11 +1,8 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
-import ReactQueryProvider from '@/components/providers/ReactQueryProvider';
 import { classNames } from '@/utils/classNames';
-import { RemoteConfigProvider } from '@/components/providers/RemoteConfigProvider';
-import { SmoothCursor } from '@/components/ui/smooth-cursor';
-import SimpleVideoPlayer from '@/components/atom/SimpleVideoPlayer';
+import LayoutProvider from '@/components/providers/LayoutProvider';
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -27,11 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={classNames(poppins.variable, 'antialiased')}>
-        <ReactQueryProvider>
-          <RemoteConfigProvider>{children}</RemoteConfigProvider>
-        </ReactQueryProvider>
-        <SmoothCursor />
-        <SimpleVideoPlayer />
+        <LayoutProvider>{children}</LayoutProvider>
       </body>
     </html>
   );

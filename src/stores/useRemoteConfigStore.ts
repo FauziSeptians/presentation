@@ -1,10 +1,11 @@
 // stores/remoteConfigStore.ts
+import { ResponseRemoteConfig } from '@/hooks/useRemoteConfigs';
 import { create } from 'zustand';
 
 type RemoteConfigState = {
-  data: Record<string, string | boolean | number> | null;
+  data: ResponseRemoteConfig | null;
   isLoading: boolean;
-  setData: (data: Record<string, string | boolean | number>) => void;
+  setData: (data: ResponseRemoteConfig) => void;
   setLoading: (loading: boolean) => void;
 };
 

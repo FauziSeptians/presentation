@@ -1,10 +1,15 @@
 // hooks/useRemoteConfigs.ts
 import { useQuery } from '@tanstack/react-query';
 import { remoteConfig } from '../lib/firebase';
-import { fetchAndActivate, getBoolean, getString } from 'firebase/remote-config';
+import {
+  fetchAndActivate,
+  getBoolean,
+  getString,
+} from 'firebase/remote-config';
 
 export type ResponseRemoteConfig = {
-  banner: boolean;
+  musicPlayer: boolean;
+  portofolio: boolean;
   [key: string]: string | number | boolean;
 };
 
@@ -13,14 +18,14 @@ export function useRemoteConfigs(keys: string[]) {
     queryKey: ['remoteConfig', ...keys],
     queryFn: async (): Promise<ResponseRemoteConfig> => {
       await fetchAndActivate(remoteConfig);
-      const result: ResponseRemoteConfig = { banner: false };
+      const result: ResponseRemoteConfig = {
+        musicPlayer: false,
+        portofolio: false,
+      };
       keys.forEach((key) => {
-        if (key === 'banner') {
-          result[key] = getBoolean(remoteConfig, key);
-        } else {
-          result[key] = getString(remoteConfig, key);
-        }
+        result[key] = getBoolean(remoteConfig, key);
       });
+      console.log(result);
       return result;
     },
     staleTime: 60_000,
