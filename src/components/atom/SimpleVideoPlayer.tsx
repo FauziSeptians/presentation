@@ -13,7 +13,7 @@ const SimpleVideoPlayer = () => {
   const [isOpenDetail, setIsOpenDetail] = useState(false);
   const [isMiniPlayer, setIsMiniPlayer] = useState(false);
 
-  const videoRef: any = useRef(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   // Daftar video lokal (pastikan file ada di folder public)
   const videos = [
@@ -42,7 +42,7 @@ const SimpleVideoPlayer = () => {
   const currentTrack = videos[currentVideo];
 
   useEffect(() => {
-    const video: any = videoRef.current;
+    const video = videoRef.current;
     if (!video) return;
 
     const updateTime = () => setCurrentTime(video.currentTime);
@@ -64,36 +64,33 @@ const SimpleVideoPlayer = () => {
       video.removeEventListener('loadedmetadata', updateDuration);
       video.removeEventListener('ended', handleEnded);
     };
-  }, [currentVideo, autoPlay]);
+  }, [currentVideo, autoPlay, volume]);
 
   // Effect untuk autoplay ketika video baru dimuat
   useEffect(() => {
-    const video: any = videoRef.current;
+    const video = videoRef.current;
     if (!video) return;
 
     const handleCanPlay = () => {
       if (autoPlay && !isPlaying) {
-        // Tambah delay kecil untuk memastikan video ready
         setTimeout(() => {
           video
             .play()
             .then(() => {
               setIsPlaying(true);
             })
-            .catch((error: any) => {
+            .catch((error: unknown) => {
               console.log('Autoplay gagal:', error);
-              // Coba lagi dengan muted autoplay
               video.muted = true;
               return video.play();
             })
             .then(() => {
               setIsPlaying(true);
-              // Unmute setelah berhasil play
               setTimeout(() => {
                 video.muted = false;
               }, 100);
             })
-            .catch((error: any) => {
+            .catch((error: unknown) => {
               console.log('Autoplay tetap gagal:', error);
             });
         }, 100);
@@ -109,9 +106,7 @@ const SimpleVideoPlayer = () => {
     video.addEventListener('canplay', handleCanPlay);
     video.addEventListener('loadeddata', handleLoadedData);
 
-    // Trigger langsung jika video sudah ready
     if (video.readyState >= 2) {
-      // HAVE_CURRENT_DATA atau lebih
       handleCanPlay();
     }
 
@@ -123,41 +118,37 @@ const SimpleVideoPlayer = () => {
 
   // Effect khusus untuk autoplay saat pertama kali load
   useEffect(() => {
-    const video: any = videoRef.current;
+    const video = videoRef.current;
     if (!video || !autoPlay) return;
 
     const startAutoplay = () => {
-      // Coba autoplay dengan volume
       video
         .play()
         .then(() => {
           setIsPlaying(true);
         })
         .catch(() => {
-          // Jika gagal, coba dengan muted
           video.muted = true;
           return video.play();
         })
         .then(() => {
           setIsPlaying(true);
-          // Unmute setelah 1 detik
           setTimeout(() => {
             video.muted = false;
           }, 1000);
         })
-        .catch((error: any) => {
+        .catch((error: unknown) => {
           console.log('Autoplay gagal:', error);
         });
     };
 
-    // Delay untuk memastikan komponen sudah fully mounted
     const timer = setTimeout(startAutoplay, 500);
 
     return () => clearTimeout(timer);
-  }, []); // Hanya run sekali saat mount
+  }, []);
 
   const togglePlay = () => {
-    const video: any = videoRef.current;
+    const video = videoRef.current;
     if (!video) return;
 
     if (isPlaying) {
@@ -178,7 +169,7 @@ const SimpleVideoPlayer = () => {
     setIsPlaying(false);
   };
 
-  const selectVideo = (index: any) => {
+  const selectVideo = (index: number) => {
     setCurrentVideo(index);
     setIsPlaying(false);
   };
@@ -187,23 +178,24 @@ const SimpleVideoPlayer = () => {
     setAutoPlay(!autoPlay);
   };
 
-  const handleProgressClick = (e: any) => {
-    const video: any = videoRef.current;
+  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const video = videoRef.current;
+    if (!video) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const clickX = e.clientX - rect.left;
     const newTime = (clickX / rect.width) * duration;
     video.currentTime = newTime;
   };
 
-  const handleVolumeChange = (e: any) => {
-    const newVolume: any = parseInt(e.target.value);
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newVolume = parseInt(e.target.value, 10);
     setVolume(newVolume);
     if (videoRef.current) {
       videoRef.current.volume = newVolume / 100;
     }
   };
 
-  const formatTime = (time: any) => {
+  const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
@@ -227,17 +219,18 @@ const SimpleVideoPlayer = () => {
         // Mini Player
         <>
           {isMiniPlayer ? (
-            <div className='flex justify-end'>
+            <div className="flex justify-end">
               <img
                 src={currentTrack.thumbnail}
                 alt={currentTrack.title}
                 style={{ animationDuration: '10s' }}
                 className="h-17 w-17 animate-spin cursor-pointer rounded-full border border-green-600/30 object-cover"
-                onError={(e: any) => {
-                  e.target.src =
+                onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                  const target = e.currentTarget;
+                  target.src =
                     'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDMyMCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMjAiIGhlaWdodD0iMTgwIiBmaWxsPSIjMzc0MTUxIi8+Cjx0ZXh0IHg9IjE2MCIgeT0iOTAiIGZpbGw9IiM5Q0EzQUYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZHk9Ii4zZW0iPk5vIFRodW1ibmFpbDwvdGV4dD4KPC9zdmc+';
                 }}
-                onClick={() => setIsMiniPlayer((PREV) => !PREV)}
+                onClick={() => setIsMiniPlayer((prev) => !prev)}
               />
             </div>
           ) : null}
@@ -257,9 +250,12 @@ const SimpleVideoPlayer = () => {
                   <img
                     src={currentTrack.thumbnail}
                     alt={currentTrack.title}
-                    className="h-9 w-9 rounded-full object-cover"
-                    onError={(e: any) => {
-                      e.target.src =
+                    className='h-9 w-9 rounded-full'
+                    onError={(
+                      e: React.SyntheticEvent<HTMLImageElement, Event>
+                    ) => {
+                      const target = e.currentTarget;
+                      target.src =
                         'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDMyMCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMjAiIGhlaWdodD0iMTgwIiBmaWxsPSIjMzc0MTUxIi8+Cjx0ZXh0IHg9IjE2MCIgeT0iOTAiIGZpbGw9IiM5Q0EzQUYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZHk9Ii4zZW0iPk5vIFRodW1ibmFpbDwvdGV4dD4KPC9zdmc+';
                     }}
                   />
@@ -337,8 +333,9 @@ const SimpleVideoPlayer = () => {
               src={currentTrack.thumbnail}
               alt={currentTrack.title}
               className="h-32 w-full rounded-lg object-cover"
-              onError={(e: any) => {
-                e.target.src =
+              onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                const target = e.currentTarget;
+                target.src =
                   'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDMyMCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMjAiIGhlaWdodD0iMTgwIiBmaWxsPSIjMzc0MTUxIi8+Cjx0ZXh0IHg9IjE2MCIgeT0iOTAiIGZpbGw9IiM5Q0EzQUYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZHk9Ii4zZW0iPk5vIFRodW1ibmFpbDwvdGV4dD4KPC9zdmc+';
               }}
             />
