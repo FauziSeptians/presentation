@@ -1,58 +1,38 @@
 'use client';
 
-import Credentials, { CredentialsProps } from '@/components/atom/Credentials';
+import Credentials, { CredentialsProps } from '@/components/atom/SocialMedia';
 import Profile, { ProfileProps } from '@/components/atom/Profile';
+import ProfileTemplates from '@/components/templates/ProfileTemplates';
+import SocialMediaTemplates from '@/components/templates/SocialMediaTemplates';
+import { RetroGrid } from '@/components/ui/retro-grid';
+import { TextAnimate } from '@/components/ui/text-animate';
+import { VideoText } from '@/components/ui/video-text';
 import { useRemoteConfigStore } from '@/stores/useRemoteConfigStore';
 import Image from 'next/image';
 
 export default function HomePage() {
   const { data, isLoading } = useRemoteConfigStore();
 
-  const profileData: ProfileProps = {
-    name: 'Muhammad Fauzi Septiana Putra',
-    img: 'https://avatars.githubusercontent.com/u/114633811?s=400&u=0a35d72cfd33db4fb46033f9772ca44cf68ac839&v=4',
-    role: 'Software Developer',
-    age: 22,
-  };
-
-  const credValue: CredentialsProps = {
-    env: process.env.NEXT_PUBLIC_ENV ?? '',
-    website: process.env.NEXT_PUBLIC_WEBSITE ?? '',
-    phoneNumber: process.env.NEXT_PUBLIC_PHONE_NUMBER ?? '',
-    email: process.env.NEXT_PUBLIC_EMAIL ?? '',
-  };
-
   if (isLoading)
     return (
       <div className="flex h-screen items-center justify-center">
-        Loading...
+        <TextAnimate animation="blurIn" as="h1">
+          Loading.....
+        </TextAnimate>
       </div>
     );
 
   return (
-    <div className="flex h-screen items-center justify-center">
-      <div className="flex flex-col gap-6">
-        {data?.banner ? (
-          <Image
-            src="https://asset-2.tstatic.net/wartakota/foto/bank/images/Jersey-terbaru-timnas-Indonesia-2025.jpg"
-            alt="indonesia"
-            width={1200} 
-            height={400}
-            style={{ width: '100%', height: 'auto' }}
-          />
-        ) : null}
-        <Profile
-          name={profileData?.name}
-          img={profileData?.img}
-          role={profileData?.role}
-          age={profileData?.age}
-        />
-        <Credentials
-          email={credValue?.email}
-          env={credValue?.env}
-          phoneNumber={credValue?.phoneNumber}
-          website={credValue?.website}
-        />
+    <div className="min-h-screen w-full overflow-y-auto bg-black">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-36">
+        <ProfileTemplates />
+        <SocialMediaTemplates />
+        <div className="relative flex h-96 w-full flex-col items-center justify-center overflow-hidden rounded-lg border">
+          <span className="pointer-events-none z-10 bg-gradient-to-b from-[#ffd319] via-[#ff2975] to-[#8c1eff] bg-clip-text text-center text-7xl leading-none font-bold tracking-wide whitespace-pre-wrap text-transparent">
+            Portofolio
+          </span>
+          <RetroGrid lightLineColor="white" darkLineColor="white" />
+        </div>
       </div>
     </div>
   );
