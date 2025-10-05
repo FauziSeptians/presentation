@@ -45,8 +45,9 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
-            docker pull ${{ secrets.DOCKER_USERNAME }}/nextjs-app:latest
-            docker stop nextjs-app || true
-            docker rm nextjs-app || true
-            docker run -d --name nextjs-app -p 5000:3000 ${{ secrets.DOCKER_USERNAME }}/nextjs-app:latest
+            sudo docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/nextjs-app:latest
+            sudo docker stop nextjs-app || true
+            sudo docker rm nextjs-app || true
+            sudo docker run -d --name nextjs-app -p 5000:3000 ${{ secrets.DOCKER_USERNAME }}/nextjs-app:latest
+
