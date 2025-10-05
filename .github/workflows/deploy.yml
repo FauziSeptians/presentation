@@ -30,26 +30,23 @@ jobs:
       - name: Build Docker image with staging env
         run: docker build --build-arg ENV_FILE=.env.staging -t nextjs-app .
 
-      - name: Save Docker image to tar
-        run: docker save nextjs-app -o nextjs-app.tar
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-      - name: Copy image to server
-        uses: appleboy/scp-action@v0.1.4
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          source: "nextjs-app.tar"
-          target: "~/nextjs-app.tar"
+      - name: Tag and Push Image to Docker Hub
+        run: |
+          docker tag nextjs-app ${{ secrets.DOCKER_USERNAME }}/nextjs-app:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/nextjs-app:latest
 
-      - name: Load and run container on server
+      - name: Deploy on server via SSH
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            docker load -i ~/nextjs-app.tar
+            docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
+            docker pull ${{ secrets.DOCKER_USERNAME }}/nextjs-app:latest
             docker stop nextjs-app || true
             docker rm nextjs-app || true
-            docker run -d --name nextjs-app -p 5000:3000 nextjs-app
+            docker run -d --name nextjs-app -p 5000:3000 ${{ secrets.DOCKER_USERNAME }}/nextjs-app:latest
