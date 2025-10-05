@@ -38,15 +38,25 @@ jobs:
           docker tag nextjs-app ${{ secrets.DOCKER_USERNAME }}/nextjs-app:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/nextjs-app:latest
 
-      - name: Deploy on server via SSH
+      - name: Pull image on server
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
+          timeout: 1800
           script: |
             sudo docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/nextjs-app:latest
+
+      - name: Run container on server
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          timeout: 600
+          script: |
             sudo docker stop nextjs-app || true
             sudo docker rm nextjs-app || true
             sudo docker run -d --name nextjs-app -p 5000:3000 ${{ secrets.DOCKER_USERNAME }}/nextjs-app:latest
