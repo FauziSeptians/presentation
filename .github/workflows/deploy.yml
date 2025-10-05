@@ -13,8 +13,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Build Docker image
-        run: docker build -t nextjs-app .
+      - name: Generate .env.staging
+        run: |
+          echo "NEXT_PUBLIC_ENV=${{ secrets.NEXT_PUBLIC_ENV }}" >> .env.staging
+          echo "NEXT_PUBLIC_EMAIL=${{ secrets.NEXT_PUBLIC_EMAIL }}" >> .env.staging
+          echo "NEXT_PUBLIC_PHONE_NUMBER=${{ secrets.NEXT_PUBLIC_PHONE_NUMBER }}" >> .env.staging
+          echo "NEXT_PUBLIC_WEBSITE=${{ secrets.NEXT_PUBLIC_WEBSITE }}" >> .env.staging
+          echo "NEXT_PUBLIC_FIREBASE_API_KEY=${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }}" >> .env.staging
+          echo "NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=${{ secrets.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN }}" >> .env.staging
+          echo "NEXT_PUBLIC_FIREBASE_PROJECTID=${{ secrets.NEXT_PUBLIC_FIREBASE_PROJECTID }}" >> .env.staging
+          echo "NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=${{ secrets.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET }}" >> .env.staging
+          echo "NEXT_PUBLIC_FIREBASE_SENDER_ID=${{ secrets.NEXT_PUBLIC_FIREBASE_SENDER_ID }}" >> .env.staging
+          echo "NEXT_PUBLIC_FIREBASE_APIID=${{ secrets.NEXT_PUBLIC_FIREBASE_APIID }}" >> .env.staging
+          echo "NEXT_PUBLIC_FIREBASE_MEASUREMENTID=${{ secrets.NEXT_PUBLIC_FIREBASE_MEASUREMENTID }}" >> .env.staging
+
+      - name: Build Docker image with staging env
+        run: docker build --build-arg ENV_FILE=.env.staging -t nextjs-app .
 
       - name: Save Docker image to tar
         run: docker save nextjs-app -o nextjs-app.tar
@@ -39,4 +53,3 @@ jobs:
             docker stop nextjs-app || true
             docker rm nextjs-app || true
             docker run -d --name nextjs-app -p 5000:3000 nextjs-app
-
