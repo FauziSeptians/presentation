@@ -17,7 +17,7 @@ export default function Profile({ name, img, role, age }: ProfileProps) {
           <HyperText className="!text-md !tracking-widest !uppercase">
             {names}
           </HyperText>
-          <p className="text-7xl font-semibold uppercase">I&apos;M A {role}</p>
+          <p className="text-5xl md:text-7xl font-semibold uppercase">I&apos;M A {role}</p>
         </div>
         <p className="text-justify opacity-70">
           I&apos;m Muhammad Fauzi Septiana Putra, a passionate Software Developer

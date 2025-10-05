@@ -7,13 +7,13 @@ export default function PortofolioTemplates() {
   return (
     <div className="flex h-fit flex-col gap-4">
       <div className="relative flex h-72 w-full flex-col items-center justify-center overflow-hidden rounded-lg border">
-        <span className="pointer-events-none z-10 bg-gradient-to-b from-[#ffd319] via-[#ff2975] to-[#8c1eff] bg-clip-text text-center text-7xl leading-none font-bold tracking-wide whitespace-pre-wrap text-transparent">
+        <span className="pointer-events-none z-10 bg-gradient-to-b from-[#ffd319] via-[#ff2975] to-[#8c1eff] bg-clip-text text-center text-5xl md:text-7xl leading-none font-bold tracking-wide whitespace-pre-wrap text-transparent">
           Portofolio
         </span>
         <RetroGrid lightLineColor="white" darkLineColor="white" />
       </div>
-      <div className="flex flex-col gap-12">
-        <div className="grid grid-cols-3 gap-6">
+      <div className="flex flex-col gap-12 px-6">
+        <div className="grid  grid-cols-1 md:grid-cols-3 gap-6">
           {portoflio.map((item) => (
             <CardPortofolio
               key={item?.title}
