@@ -1,5 +1,5 @@
 # Gunakan image resmi Node.js
-FROM node:18-alpine
+FROM node:20-alpine
 
 # Set direktori kerja
 WORKDIR /app
@@ -27,4 +27,7 @@ EXPOSE 3000
 
 # Jalankan aplikasi Next.js
 CMD ["npm", "start"]
+
+
+
 
