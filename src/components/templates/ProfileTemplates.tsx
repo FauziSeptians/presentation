@@ -20,7 +20,7 @@ export default function ProfileTemplates() {
         role={profileData.role}
         age={profileData.age}
       />
-      <div className="relative flex w-full items-center justify-center">
+      <div className="relative hidden w-full items-center justify-center md:flex">
         <Image
           src="/assets/zoro.png"
           alt="zoro"

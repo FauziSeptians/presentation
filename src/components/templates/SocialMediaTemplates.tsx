@@ -12,8 +12,8 @@ export default function SocialMediaTemplates() {
 
   return (
     <>
-      <div className="flex h-96 items-center px-6 justify-between">
-        <h1 className="flex flex-col text-4xl font-bold tracking-tighter md:text-5xl lg:text-7xl text-white">
+      <div className="flex h-96 flex-col items-center justify-between gap-12 px-6 md:flex-row md:gap-0">
+        <h1 className="flex flex-col text-4xl font-bold tracking-tighter text-white md:text-5xl lg:text-7xl md:text-start text-center">
           My <AuroraText>Social Media</AuroraText>{' '}
         </h1>
         <SocialMedia
