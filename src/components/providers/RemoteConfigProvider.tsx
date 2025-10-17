@@ -10,11 +10,8 @@ type Props = {
 
 export function RemoteConfigProvider({ children }: Props) {
   const { data, isLoading } = useRemoteConfigs(['portofolio', 'musicPlayer']);
-  console.log(data);
   const setData = useRemoteConfigStore((s) => s.setData);
   const setLoading = useRemoteConfigStore((s) => s.setLoading);
-
-  console.log('data', data);
 
   useEffect(() => {
     setLoading(false);

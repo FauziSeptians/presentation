@@ -3,8 +3,12 @@
 import { CredentialsProps } from '../atom/SocialMedia';
 import Profile, { ProfileProps } from '../atom/Profile';
 import Image from 'next/image';
+import OptimizedImage from '../atom/Image';
+import { HtmlHTMLAttributes } from 'react';
 
-export default function ProfileTemplates() {
+export default function ProfileTemplates(
+  props?: HtmlHTMLAttributes<HTMLDivElement>
+) {
   const profileData: ProfileProps = {
     name: 'Fauziseptians',
     img: 'https://avatars.githubusercontent.com/u/114633811?s=400&u=0a35d72cfd33db4fb46033f9772ca44cf68ac839&v=4',
@@ -13,7 +17,10 @@ export default function ProfileTemplates() {
   };
 
   return (
-    <div className="flex w-full items-center justify-between px-6 py-10">
+    <div
+      className="flex w-full items-center justify-between px-6 py-3"
+      {...props}
+    >
       <Profile
         name={profileData.name}
         img={profileData.img}
@@ -21,14 +28,14 @@ export default function ProfileTemplates() {
         age={profileData.age}
       />
       <div className="relative hidden w-full items-center justify-center md:flex">
-        <Image
+        <OptimizedImage
           src="/assets/zoro.png"
           alt="zoro"
           width={490}
           height={400}
           className="absolute z-30"
         />
-        <Image
+        <OptimizedImage
           src="/assets/circle.png"
           alt="zoro"
           width={490}
