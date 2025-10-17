@@ -12,6 +12,7 @@ import PromotionTemplates from '@/components/templates/PromotionTemplates';
 import SimpleVideoPlayer from '@/components/atom/SimpleVideoPlayer';
 import { TextAnimate } from '@/components/ui/text-animate';
 import { useRemoteConfigStore } from '@/stores/useRemoteConfigStore';
+import SpacerTextTemplate from '@/components/templates/SpacerTextTemplate';
 
 export default function HomePage() {
   const { data, isLoading } = useRemoteConfigStore();
@@ -59,6 +60,8 @@ export default function HomePage() {
         <section id="certification" className="scroll-mt-24">
           <CertificationTemplates />
         </section>
+
+        <SpacerTextTemplate />
 
         <section id="blog" className="scroll-mt-24">
           <BlogTemplates />
