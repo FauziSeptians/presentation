@@ -2,15 +2,16 @@ import { HtmlHTMLAttributes } from 'react';
 import SocialMedia from '../atom/SocialMedia';
 import { CredentialsProps } from '../atom/SocialMedia';
 import { AuroraText } from '../ui/aurora-text';
+import social from '../../data/credential-data.json';
 
 export default function SocialMediaTemplates(
   props?: HtmlHTMLAttributes<HTMLDivElement>
 ) {
   const credValue: CredentialsProps = {
-    env: process.env.NEXT_PUBLIC_ENV ?? '',
-    website: process.env.NEXT_PUBLIC_WEBSITE ?? '',
-    phoneNumber: process.env.NEXT_PUBLIC_PHONE_NUMBER ?? '',
-    email: process.env.NEXT_PUBLIC_EMAIL ?? '',
+    linkedin: social?.linkedin,
+    github: social?.github,
+    phoneNumber: social?.phoneNumber,
+    email: social?.email,
   };
 
   return (
@@ -23,9 +24,9 @@ export default function SocialMediaTemplates(
       </h1>
       <SocialMedia
         email={credValue?.email}
-        env={credValue?.env}
+        linkedin={credValue?.linkedin}
         phoneNumber={credValue?.phoneNumber}
-        website={credValue?.website}
+        github={credValue?.github}
       />
     </div>
   );
