@@ -25,7 +25,6 @@ export function useRemoteConfigs(keys: string[]) {
       keys.forEach((key) => {
         result[key] = getBoolean(remoteConfig, key);
       });
-      console.log(result);
       return result;
     },
     staleTime: 60_000,
