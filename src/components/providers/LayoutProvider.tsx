@@ -7,6 +7,7 @@ import SimpleVideoPlayer from '@/components/atom/SimpleVideoPlayer';
 import { TextAnimate } from '../ui/text-animate';
 import { useRemoteConfigStore } from '@/stores/useRemoteConfigStore';
 import Navbar from '../atom/Navbar';
+import ModalProvider from './ModalProvider';
 
 export default function LayoutProvider({
   children,
@@ -17,8 +18,10 @@ export default function LayoutProvider({
     <>
       <ReactQueryProvider>
         <RemoteConfigProvider>
-          <Navbar />
-          {children}
+          <ModalProvider>
+            <Navbar />
+            {children}
+          </ModalProvider>
         </RemoteConfigProvider>
       </ReactQueryProvider>
     </>

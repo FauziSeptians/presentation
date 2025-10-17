@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @import './scrollbar.css';
 @import './gradient.css';
+@import './slide.css';
 
 :root {
   font-family: var(--font-poppins), sans-serif;
