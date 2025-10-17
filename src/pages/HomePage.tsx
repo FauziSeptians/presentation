@@ -1,23 +1,17 @@
 'use client';
 
-import Credentials, { CredentialsProps } from '@/components/atom/SocialMedia';
-import Profile, { ProfileProps } from '@/components/atom/Profile';
 import ProfileTemplates from '@/components/templates/ProfileTemplates';
 import SocialMediaTemplates from '@/components/templates/SocialMediaTemplates';
-import { RetroGrid } from '@/components/ui/retro-grid';
-import { TextAnimate } from '@/components/ui/text-animate';
-import { VideoText } from '@/components/ui/video-text';
-import { useRemoteConfigStore } from '@/stores/useRemoteConfigStore';
-import Image from 'next/image';
-import SimpleVideoPlayer from '@/components/atom/SimpleVideoPlayer';
 import PortofolioTemplates from '@/components/templates/PortofolioTemplates';
 import FooterTemplates from '@/components/templates/FooterTemplates';
 import HireMeTemplates from '@/components/templates/HireMeTemplates';
 import SkillTemplates from '@/components/templates/SkillTemplates';
 import CertificationTemplates from '@/components/templates/CertificationTemplates';
-import { useEffect } from 'react';
 import BlogTemplates from '@/components/templates/BlogTemplates';
 import PromotionTemplates from '@/components/templates/PromotionTemplates';
+import SimpleVideoPlayer from '@/components/atom/SimpleVideoPlayer';
+import { TextAnimate } from '@/components/ui/text-animate';
+import { useRemoteConfigStore } from '@/stores/useRemoteConfigStore';
 
 export default function HomePage() {
   const { data, isLoading } = useRemoteConfigStore();
@@ -32,14 +26,17 @@ export default function HomePage() {
     );
 
   return (
-    <div className="min-h-screen w-full overflow-y-auto bg-black pt-16">
-      {data?.musicPlayer ? <SimpleVideoPlayer /> : null}
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-36">
+    <div className="min-h-screen w-full bg-black pt-16">
+      {data?.musicPlayer && <SimpleVideoPlayer />}
+
+      <div className="mx-auto flex h-full w-full max-w-6xl flex-col gap-36">
         <section id="profile" className="scroll-mt-24">
           <ProfileTemplates />
         </section>
 
-        <HireMeTemplates />
+        <section id="hire" className="scroll-mt-24">
+          <HireMeTemplates />
+        </section>
 
         <section id="social" className="scroll-mt-24">
           <SocialMediaTemplates />
@@ -55,7 +52,9 @@ export default function HomePage() {
           <SkillTemplates />
         </section>
 
-        <PromotionTemplates />
+        <section id="promotion" className="scroll-mt-24">
+          <PromotionTemplates />
+        </section>
 
         <section id="certification" className="scroll-mt-24">
           <CertificationTemplates />
