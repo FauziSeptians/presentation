@@ -1,7 +1,7 @@
 import { HtmlHTMLAttributes } from 'react';
 import CardHire from '../molecules/CardHire';
 import { AuroraText } from '../ui/aurora-text';
-import hireMe from '../../data/hireme-data.json';
+import {hireMe} from '../../data/hireme-data';
 
 export default function HireMeTemplates(
   props?: HtmlHTMLAttributes<HTMLDivElement>
@@ -21,6 +21,7 @@ export default function HireMeTemplates(
               key={item?.title}
               title={item?.title}
               description={item?.description}
+              icon={item?.icon}
             />
           );
         })}

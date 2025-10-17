@@ -1,10 +1,24 @@
+import { useDownloadPdf } from '@/hooks/useDownloadPdf';
 import { AuroraText } from '../ui/aurora-text';
 import { Button } from '../ui/button';
+import { useToastStore } from '@/stores/useToastStore';
 
 export default function PromotionTemplates() {
+  const { download } = useDownloadPdf();
+  const { showToast } = useToastStore();
+
+  const handleDownload = async () => {
+    try {
+      await download('/files/cv.pdf', 'CV_Muhammad-Fauzi-Septiana-Putra.pdf');
+      showToast('Download successfully!');
+    } catch (err) {
+      showToast('Download failed!');
+    }
+  };
+
   return (
     <div className="relative overflow-hidden rounded-xl">
-      <div className="gradient-animated absolute inset-0 z-0 mx-6 opacity-50 px-6 rounded-xl" />
+      <div className="gradient-animated absolute inset-0 z-0 mx-6 rounded-xl px-6 opacity-50" />
       <div className="relative z-10 flex h-auto flex-col items-center justify-between gap-6 px-12 py-8 text-white md:h-56 md:flex-row md:gap-12">
         <div className="flex max-w-xl flex-col text-center md:text-left">
           <p className="text-lg leading-snug font-semibold md:text-2xl">
@@ -17,7 +31,10 @@ export default function PromotionTemplates() {
         <div className="flex items-center gap-4">
           <Button
             variant="outline"
-            className="h-full cursor-pointer px-6 py-2 text-sm md:text-base"
+            onClick={() => {
+              download('/files/cv.pdf', 'CV_Muhammad-Fauzi-Septiana-Putra.pdf')
+              showToast('download successfully!');
+            }}
           >
             Download CV
           </Button>
