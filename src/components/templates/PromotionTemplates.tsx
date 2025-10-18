@@ -33,10 +33,10 @@ export default function PromotionTemplates() {
   });
 
   return (
-    <section className="h-[200vh] bg-black text-white">
+    <section className="h-fit md:h-[200vh] bg-black text-white">
       <motion.div
         ref={ref}
-        className="sticky top-0 flex h-screen items-center justify-center px-6"
+        className="sticky top-0 flex h-fit md:h-screen items-center justify-center px-6"
       >
         <motion.div
           className={classNames(

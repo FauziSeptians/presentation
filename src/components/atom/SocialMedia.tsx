@@ -77,7 +77,7 @@ export default function SocialMedia({
             >
               <span
                 className={classNames(
-                  'relative z-10 transition-colors duration-300 group-hover:text-black',
+                  'relative z-10 truncate overflow-hidden text-xs whitespace-nowrap transition-colors duration-300 group-hover:text-black md:text-base',
                   isActive ? 'text-black' : ''
                 )}
               >
