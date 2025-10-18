@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'vitest.dev' },
       { protocol: 'https', hostname: 'sentry.io' },
       { protocol: 'https', hostname: 'uxwing.com' },
-      { protocol: 'https', hostname: 'make.wordpress.org' }
+      { protocol: 'https', hostname: 'make.wordpress.org' },
     ],
   },
 };

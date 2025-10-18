@@ -1,56 +1,51 @@
 [
   {
-    "title": "Monkey D. Luffy",
-    "description": "Kapten kru Topi Jerami yang bercita-cita menjadi Raja Bajak Laut.",
-    "image": "https://4kwallpapers.com/images/wallpapers/gear-5-monkey-d-6001x3841-17522.jpg",
-    "alt": "Luffy One Piece Unsplash"
+    "title": "Frontend Next JS - Boilerplate",
+    "description": "Developed a comprehensive Next.js Boilerplate featuring Docker support, GitHub Actions CI/CD, ESLint configuration, and pre-built project structure to accelerate frontend development.",
+    "tag": ["NEXT JS", "TYPESCRIPT"],
+    "image": "/images/nextjs.jpeg",
+    "url": "https://github.com/FauziSeptians/fe-boilerplate"
   },
   {
-    "title": "Roronoa Zoro",
-    "description": "Pendekar pedang dengan gaya tiga pedang, tangan kanan Luffy.",
-    "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d96bb958-4e6c-4ce0-9447-fbe226fbbecf/dhakgdn-cd65dc87-ba7c-4cb6-8eeb-9d9b08ce8d18.jpg/v1/fill/w_1280,h_720,q_75,strp/zoro_roronoa_one_piece_animated_wallpaper_by_favorisxp_dhakgdn-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6Ii9mL2Q5NmJiOTU4LTRlNmMtNGNlMC05NDQ3LWZiZTIyNmZiYmVjZi9kaGFrZ2RuLWNkNjVkYzg3LWJhN2MtNGNiNi04ZWViLTlkOWIwOGNlOGQxOC5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.oCUiVUacD6UNHVsCF1f9A8YMnlicT01Af3jh158KNmA",
-    "alt": "Zoro One Piece Unsplash"
+    "title": "ZSANSSUI - UI Library",
+    "description": "Created a reusable React component library using Vite, packaged and published to npm for easy integration across projects.",
+    "tag": ["VITE", "NPM"],
+    "image": "/images/npm.jpg",
+    "url": "https://github.com/FauziSeptians/zsanss-ui"
   },
   {
-    "title": "Nami",
-    "description": "Navigator ulung yang ahli membaca cuaca dan peta.",
-    "image": "https://cdna.artstation.com/p/assets/video_clips/images/061/998/996/large/favorisxp-thumb.jpg?1682097973",
-    "alt": "Nami One Piece Unsplash"
+    "title": "ND Merbau Landing Page",
+    "description": "A clean and informative landing page for ND Merbau, a direct supplier of merbau, bamboo, and composite products. The site showcases high-quality design solutions for decking and fencing, targeting both wholesale and retail customers.",
+    "tag": ["Next.js", "Landing Page", "Product Showcase"],
+    "image": "/images/nextjs.jpeg",
+    "url": "https://ndmerbau-landing-page.vercel.app/"
   },
   {
-    "title": "Usopp",
-    "description": "Penembak jitu kru Topi Jerami dengan imajinasi liar.",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGX5csT-cSMn9cY2LEhDwjaUGiHiqvNEGCHQ&s",
-    "alt": "Usopp One Piece Unsplash"
+    "title": "Prestasi Property",
+    "description": "A property listing platform offering curated real estate options across Bandung and West Java. The site features detailed property cards, image galleries, and service offerings including consultation and financing solutions for families and investors.",
+    "tag": ["Next.js", "Real Estate", "Property Listing"],
+    "image": "/images/nextjs.jpeg",
+    "url": "https://prestasiproperty.vercel.app/"
   },
   {
-    "title": "Sanji",
-    "description": "Koki kru Topi Jerami dengan tendangan mautnya.",
-    "image": "https://wallpapers-clan.com/wp-content/uploads/2024/02/one-piece-sanji-with-cigarette-blue-desktop-wallpaper-cover.jpg",
-    "alt": "Sanji One Piece Unsplash"
+    "title": "Polution Detection IOT & WEB Application",
+    "description": "Built an integrated IoT and web application for pollution monitoring using Next.js frontend and Arduino-based sensors with C++.",
+    "tag": ["NEXT JS", "C++"],
+    "image": "/images/polution-detection.jpg",
+    "url": "https://github.com/FauziSeptians/PolutionDetectionProject"
   },
   {
-    "title": "Tony Tony Chopper",
-    "description": "Dokter kru Topi Jerami yang bisa berubah bentuk.",
-    "image": "https://wallpapers-clan.com/wp-content/uploads/2024/07/one-piece-chopper-kawaii-desktop-wallpaper-cover.jpg",
-    "alt": "Chopper One Piece Unsplash"
+    "title": "Travelies - Travel Service Provider Website",
+    "description": "Developed solutions for Travelies, a major travel marketplace platform connecting millions of travelers with destinations and accommodations across Indonesia and beyond.",
+    "tag": ["HTML", "CSS", "JAVASCRIPT", "FIGMA"],
+    "image": "/images/travelies.jpg",
+    "url": "https://www.linkedin.com/in/muhammadfauzi14/details/projects/1635537195940/single-media-viewer/?profileId=ACoAADYVFcsBnQaIQ-ibr5jdG2oJEA5oSJe7hbE"
   },
   {
-    "title": "Nico Robin",
-    "description": "Arkeolog yang bisa membaca Poneglyph dan mencari Rio Poneglyph.",
-    "image": "https://wallpapers-clan.com/wp-content/uploads/2025/04/one-piece-nico-robin-epic-desktop-wallpaper-preview.jpg",
-    "alt": "Robin One Piece Unsplash"
-  },
-  {
-    "title": "Franky",
-    "description": "Cyborg tukang kapal yang membangun Thousand Sunny.",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSET-Wq6lPiufAXCILr9jDuI3J8Gc224C62kw&s",
-    "alt": "Franky One Piece Unsplash"
-  },
-  {
-    "title": "Brook",
-    "description": "Musisi tengkorak yang bisa hidup kembali berkat Yomi Yomi no Mi.",
-    "image": "https://e1.pxfuel.com/desktop-wallpaper/850/21/desktop-wallpaper-soul-king-brook.jpg",
-    "alt": "Brook One Piece Unsplash"
+    "title": "VACash - Mobile Game Apps TopUp Coin",
+    "description": "Built VA Cash, an Android mobile app for game top-up transactions, handling both UI/UX design and development using Java.",
+    "tag": ["JAVA", "AXURE RP"],
+    "image": "/images/vacash.jpg",
+    "url": "https://www.linkedin.com/in/muhammadfauzi14/details/projects/1635537205295/single-media-viewer/?profileId=ACoAADYVFcsBnQaIQ-ibr5jdG2oJEA5oSJe7hbE"
   }
 ]

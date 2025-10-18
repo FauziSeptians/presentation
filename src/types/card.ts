@@ -3,4 +3,5 @@ export type CardTypes = {
   description: string;
   image: string;
   alt: string;
+  link?: string;
 };

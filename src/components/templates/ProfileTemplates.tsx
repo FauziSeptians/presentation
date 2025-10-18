@@ -29,19 +29,13 @@ export default function ProfileTemplates(
       />
       <div className="relative hidden w-full items-center justify-center md:flex">
         <OptimizedImage
-          src="/assets/zoro.png"
+          src="/images/images-porto.png"
           alt="zoro"
-          width={490}
-          height={400}
-          className="absolute z-30"
+          width={390}
+          height={100}
+          className="absolute z-30 rounded-[45%]"
         />
-        <OptimizedImage
-          src="/assets/circle.png"
-          alt="zoro"
-          width={490}
-          height={400}
-          className="absolute rounded-xl"
-        />
+        <div className="absolute z-0 h-[400px] w-[400px] rounded-[40%] bg-gradient-to-br from-[#ffd319] via-[#ff2975] to-[#8c1eff] opacity-60 blur-3xl" />
       </div>
     </div>
   );
