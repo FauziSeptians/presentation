@@ -1,12 +1,16 @@
 import { useToastStore } from '@/stores/useToastStore';
 import { classNames } from '@/utils/classNames';
+import { MotionValue, useMotionValueEvent } from 'framer-motion';
 import { Box, Computer, EarthIcon, Phone } from 'lucide-react';
+import { HtmlHTMLAttributes, useState } from 'react';
 
 export type CredentialsProps = {
   linkedin: string;
   github: string;
   phoneNumber: string;
   email: string;
+  scrollYProgress: MotionValue<number>;
+  props?: HtmlHTMLAttributes<HTMLDivElement>;
 };
 
 export default function SocialMedia({
@@ -14,8 +18,11 @@ export default function SocialMedia({
   github,
   phoneNumber,
   email,
+  scrollYProgress,
+  props,
 }: CredentialsProps) {
   const { showToast } = useToastStore();
+  const [animation, setAnimation] = useState(0);
 
   const data = [
     {
@@ -36,10 +43,20 @@ export default function SocialMedia({
     { icon: <Box size={17} />, val: email, title: 'email' },
   ];
 
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    console.log('Scroll progress:', latest);
+    setAnimation(latest);
+  });
+
+  console.log(animation);
+
   return (
-    <div className="relative flex w-full max-w-md flex-col gap-12">
+    <div className="relative flex w-full max-w-md flex-col gap-12" {...props}>
       <div className="absolute left-[20px] z-0 h-full w-[5px] rounded-full bg-white/90"></div>
-      {data.map((item) => {
+      {data.map((item, index) => {
+        const start = 0.2 + index * 0.125;
+        const isActive = animation >= start;
+
         return (
           <div
             key={item.val}
@@ -52,16 +69,26 @@ export default function SocialMedia({
             </div>
             <button
               className="text-md relative cursor-pointer overflow-hidden px-3 py-2 tracking-wider text-white"
-              title={item?.title}
+              title={item.title}
               onClick={() => {
                 showToast('Data copied successfully!');
-                navigator.clipboard.writeText(item?.val);
+                navigator.clipboard.writeText(item.val);
               }}
             >
-              <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
+              <span
+                className={classNames(
+                  'relative z-10 transition-colors duration-300 group-hover:text-black',
+                  isActive ? 'text-black' : ''
+                )}
+              >
                 {item.val}
               </span>
-              <span className="absolute top-0 left-0 h-full w-0 bg-white transition-all duration-500 group-hover:w-full"></span>
+              <span
+                className={classNames(
+                  'absolute top-0 left-0 h-full bg-white transition-all duration-500',
+                  isActive ? 'w-full' : 'w-0'
+                )}
+              ></span>
             </button>
           </div>
         );
