@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Frontend Developer (React)",
+    "platform": "HackerRank",
+    "url": "https://www.hackerrank.com/certificates/a9da9b18019c",
+    "image": "/images/hackerrank.png",
+    "description": "Demonstrates proficiency in building user interfaces using React, including component architecture, state management, and API integration."
+  },
+  {
+    "title": "Rest API (Intermediate)",
+    "platform": "HackerRank",
+    "url": "https://www.hackerrank.com/certificates/1c5142e873f4",
+    "image": "/images/hackerrank.png",
+    "description": "Validates intermediate-level understanding of RESTful API design, HTTP methods, status codes, and endpoint structuring."
+  },
+  {
+    "title": "Java (Basic)",
+    "platform": "HackerRank",
+    "url": "https://www.hackerrank.com/certificates/8840ca7562fe",
+    "image": "/images/hackerrank.png",
+    "description": "Certifies basic knowledge of Java programming, including data types, control flow, and foundational syntax."
+  },
+  {
+    "title": "Software Engineer Intern",
+    "platform": "HackerRank",
+    "url": "https://www.hackerrank.com/certificates/359e4caefe4c",
+    "image": "/images/hackerrank.png",
+    "description": "Indicates readiness for a Software Engineer internship role, covering programming fundamentals, debugging, and problem-solving skills."
+  },
+  {
+    "title": "JavaScript (Basic)",
+    "platform": "HackerRank",
+    "url": "https://www.hackerrank.com/certificates/d1955c1e5f95",
+    "image": "/images/hackerrank.png",
+    "description": "Shows foundational understanding of JavaScript, including variables, functions, loops, and basic DOM manipulation."
+  },
+  {
+    "title": "SQL (Intermediate)",
+    "platform": "HackerRank",
+    "url": "https://www.hackerrank.com/certificates/16ab8ef06a6a",
+    "image": "/images/hackerrank.png",
+    "description": "Demonstrates ability to write complex SQL queries using JOINs, GROUP BY, subqueries, and data analysis techniques."
+  },
+  {
+    "title": "SQL (Basic)",
+    "platform": "HackerRank",
+    "url": "https://www.hackerrank.com/certificates/ada6d29bd8a6",
+    "image": "/images/hackerrank.png",
+    "description": "Certifies basic SQL skills, including SELECT statements, filtering with WHERE, and simple table operations."
+  }
+]

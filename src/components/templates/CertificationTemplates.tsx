@@ -1,7 +1,7 @@
 import { HtmlHTMLAttributes } from 'react';
 import { AuroraText } from '../ui/aurora-text';
 import { CardPortofolio } from '../atom/Card';
-import portofolio from '../../data/portofolio-data.json';
+import certificates from '../../data/certificates-data.json';
 import Pagination from '../atom/Pagination';
 
 export default function CertificationTemplates(
@@ -13,7 +13,7 @@ export default function CertificationTemplates(
         My <AuroraText>Certification</AuroraText>{' '}
       </h1>
       <div className="h-full">
-        <Pagination data={portofolio}>
+        <Pagination data={certificates}>
           {(data) => (
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {data.slice(0, 3).map((item) => (
@@ -21,8 +21,9 @@ export default function CertificationTemplates(
                   key={item?.title}
                   title={item?.title}
                   image={item?.image}
-                  alt={item?.alt}
+                  alt={item?.title}
                   description={item?.description}
+                  link={item?.url}
                 />
               ))}
             </div>
