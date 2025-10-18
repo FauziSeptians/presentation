@@ -5,13 +5,23 @@ export default function FooterTemplates(
   props?: HtmlHTMLAttributes<HTMLDivElement>
 ) {
   return (
-    <div
-      className="h-96 border-t-[1px] border-neutral-200/30 bg-black px-6 py-8"
+    <footer
+      className="w-full border-t border-neutral-800 bg-black px-6 py-10 text-white"
       {...props}
     >
-      <p className="text-md flex flex-col font-bold tracking-tighter text-white md:text-xl lg:text-3xl">
-        Fauziseptians <AuroraText>Software Developer</AuroraText>{' '}
-      </p>
-    </div>
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 md:flex-row">
+        <div className="text-center md:text-left">
+          <h2 className="text-xl font-semibold tracking-tight md:text-2xl">
+            Fauziseptians
+          </h2>
+          <p className="text-sm text-neutral-400">
+            <AuroraText>Software Developer</AuroraText>
+          </p>
+        </div>
+        <div className="text-sm text-neutral-500">
+          © {new Date().getFullYear()} Fauziseptians. All rights reserved.
+        </div>
+      </div>
+    </footer>
   );
 }
