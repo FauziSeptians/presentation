@@ -31,6 +31,7 @@ export default function PromotionTemplates() {
         <div className="flex items-center gap-4">
           <Button
             variant="outline"
+            className='cursor-pointer'
             onClick={() => {
               download('/files/cv.pdf', 'CV_Muhammad-Fauzi-Septiana-Putra.pdf')
               showToast('download successfully!');
