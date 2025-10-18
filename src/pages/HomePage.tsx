@@ -13,13 +13,14 @@ import SimpleVideoPlayer from '@/components/atom/SimpleVideoPlayer';
 import { TextAnimate } from '@/components/ui/text-animate';
 import { useRemoteConfigStore } from '@/stores/useRemoteConfigStore';
 import SpacerTextTemplate from '@/components/templates/SpacerTextTemplate';
+import AnimatedSection from '@/components/atom/AnimatedSection';
 
 export default function HomePage() {
   const { data, isLoading } = useRemoteConfigStore();
 
   if (isLoading)
     return (
-      <div className="flex h-screen items-center justify-center">
+      <div className="flex h-screen items-center justify-center bg-black text-white">
         <TextAnimate animation="blurIn" as="h1">
           Loading.....
         </TextAnimate>
@@ -31,41 +32,41 @@ export default function HomePage() {
       {data?.musicPlayer && <SimpleVideoPlayer />}
 
       <div className="mx-auto flex h-full w-full max-w-6xl flex-col gap-36">
-        <section id="profile" className="scroll-mt-24">
+        <AnimatedSection id="profile" className="scroll-mt-24">
           <ProfileTemplates />
-        </section>
+        </AnimatedSection>
 
-        <section id="hire" className="scroll-mt-24">
+        <AnimatedSection id="hire" className="scroll-mt-24">
           <HireMeTemplates />
-        </section>
+        </AnimatedSection>
 
-        <section id="social" className="scroll-mt-24">
+        <AnimatedSection id="social" className="scroll-mt-24">
           <SocialMediaTemplates />
-        </section>
+        </AnimatedSection>
 
         {data?.portofolio && (
-          <section id="project" className="scroll-mt-24">
+          <AnimatedSection id="project" className="scroll-mt-24">
             <PortofolioTemplates />
-          </section>
+          </AnimatedSection>
         )}
 
-        <section id="skill" className="scroll-mt-24">
+        <AnimatedSection id="skill" className="scroll-mt-24">
           <SkillTemplates />
-        </section>
+        </AnimatedSection>
 
-        <section id="promotion" className="scroll-mt-24">
+        <AnimatedSection id="promotion" className="scroll-mt-24">
           <PromotionTemplates />
-        </section>
+        </AnimatedSection>
 
-        <section id="certification" className="scroll-mt-24">
+        <AnimatedSection id="certification" className="scroll-mt-24">
           <CertificationTemplates />
-        </section>
+        </AnimatedSection>
 
         <SpacerTextTemplate />
 
-        <section id="blog" className="scroll-mt-24">
+        <AnimatedSection id="blog" className="scroll-mt-24">
           <BlogTemplates />
-        </section>
+        </AnimatedSection>
 
         <FooterTemplates />
       </div>
