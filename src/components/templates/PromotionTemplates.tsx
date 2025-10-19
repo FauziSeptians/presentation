@@ -1,6 +1,5 @@
 import { useDownloadPdf } from '@/hooks/useDownloadPdf';
 import { useToastStore } from '@/stores/useToastStore';
-import { classNames } from '@/utils/classNames'; // pastikan kamu punya helper ini
 import {
   motion,
   useMotionValueEvent,
@@ -21,11 +20,9 @@ export default function PromotionTemplates() {
     offset: ['start end', 'end start'],
   });
 
-  // Animasi scale dan teks
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 1.1, 0.3]);
   const scaleText = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 1.1, 0.3]);
 
-  // State untuk mengatur apakah gradient aktif
   const [isGradientActive, setIsGradientActive] = useState(true);
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
@@ -39,35 +36,36 @@ export default function PromotionTemplates() {
         className="sticky top-0 flex h-fit items-center justify-center px-6 md:h-screen"
       >
         <motion.div
-          className={classNames(
-            'relative flex w-full max-w-5xl items-center justify-center overflow-hidden rounded-xl p-6 transition-colors duration-700 md:p-10',
-            isGradientActive
-              ? 'gradient-animated bg-gradient-to-br from-white/10 to-white/5'
-              : 'bg-black'
-          )}
+          className="relative flex w-full max-w-5xl items-center justify-center overflow-hidden rounded-xl p-6 md:p-10"
           style={{ scale, height: '100%' }}
         >
-          {/* Overlay hitam untuk transisi smooth */}
+          {/* Layer gradient background */}
           <motion.div
-            className="pointer-events-none absolute inset-0 z-0 rounded-xl bg-black"
-            initial={{ opacity: 0 }}
+            className="gradient-animated absolute inset-0 z-0 rounded-xl bg-gradient-to-br from-white/10 to-white/5"
+            animate={{ opacity: isGradientActive ? 1 : 0 }}
+            transition={{ duration: 0.6, ease: 'easeInOut' }}
+          />
+
+          {/* Layer solid black background */}
+          <motion.div
+            className="absolute inset-0 z-0 rounded-xl bg-black"
             animate={{ opacity: isGradientActive ? 0 : 1 }}
             transition={{ duration: 0.6, ease: 'easeInOut' }}
           />
 
-          {/* Konten utama */}
+          {/* Main content */}
           <motion.div
             className="relative z-10 flex w-full flex-col items-center justify-center gap-8"
             style={{ scale: scaleText }}
           >
-            <motion.div className="flex max-w-xl flex-col text-center">
+            <div className="flex max-w-xl flex-col text-center">
               <p className="text-lg leading-snug font-semibold md:text-2xl">
                 I’d love to bring my skills and energy to your organization.
               </p>
               <p className="mt-2 text-sm opacity-80 md:text-base">
                 Are you open to exploring how I can support your goals?
               </p>
-            </motion.div>
+            </div>
 
             <div className="flex w-full flex-col justify-center gap-4 pt-8 md:flex-row md:items-center">
               <Button
@@ -78,7 +76,7 @@ export default function PromotionTemplates() {
                     '/files/cv.pdf',
                     'CV_Muhammad-Fauzi-Septiana-Putra.pdf'
                   );
-                  showToast('download successfully!');
+                  showToast('Download successfully!');
                 }}
               >
                 Download CV
