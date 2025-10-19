@@ -1,8 +1,8 @@
 import { HtmlHTMLAttributes } from 'react';
-import { AuroraText } from '../ui/aurora-text';
-import { CardPortofolio } from '../atom/Card';
 import certificates from '../../data/certificates-data.json';
+import { CardPortofolio } from '../atom/Card';
 import Pagination from '../atom/Pagination';
+import { AuroraText } from '../ui/aurora-text';
 
 export default function CertificationTemplates(
   props?: HtmlHTMLAttributes<HTMLDivElement>

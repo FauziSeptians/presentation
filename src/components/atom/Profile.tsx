@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { HyperText } from '../ui/hyper-text';
 
 export type ProfileProps = {
@@ -17,13 +16,15 @@ export default function Profile({ name, img, role, age }: ProfileProps) {
           <HyperText className="!text-md !tracking-widest !uppercase">
             {names}
           </HyperText>
-          <p className="text-5xl md:text-7xl font-semibold uppercase">I&apos;M A {role}</p>
+          <p className="text-5xl font-semibold uppercase md:text-7xl">
+            I&apos;M A {role}
+          </p>
         </div>
         <p className="text-justify opacity-70">
-          I&apos;m Muhammad Fauzi Septiana Putra, a passionate Software Developer
-          with a keen eye for design and user experience. This space reflects my
-          journey through code and creativity, blending functionality with
-          aesthetics to build meaningful digital experiences.
+          I&apos;m Muhammad Fauzi Septiana Putra, a passionate Software
+          Developer with a keen eye for design and user experience. This space
+          reflects my journey through code and creativity, blending
+          functionality with aesthetics to build meaningful digital experiences.
         </p>
       </div>
     </div>

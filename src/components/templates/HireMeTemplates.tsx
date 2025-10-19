@@ -1,16 +1,19 @@
 'use client';
 
+import { motion, useAnimation, useInView } from 'framer-motion';
 import { HtmlHTMLAttributes, useEffect, useRef } from 'react';
+import { hireMe } from '../../data/hireme-data';
 import CardHire from '../molecules/CardHire';
 import { AuroraText } from '../ui/aurora-text';
-import { hireMe } from '../../data/hireme-data';
-import { motion, useAnimation, useInView } from 'framer-motion';
 
 export default function HireMeTemplates(
   props?: HtmlHTMLAttributes<HTMLDivElement>
 ) {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, margin: '0px 0px -100px 0px' });
+  const isInView = useInView(containerRef, {
+    once: true,
+    margin: '0px 0px -100px 0px',
+  });
   const controls = useAnimation();
 
   useEffect(() => {

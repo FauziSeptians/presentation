@@ -1,5 +1,4 @@
 import MarqueeText from '../atom/MarqueeText';
-import SkillCard from '../molecules/SkillCard';
 import { Marquee } from '../ui/marquee';
 
 const text = [

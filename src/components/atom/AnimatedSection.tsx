@@ -1,6 +1,6 @@
+import type { HTMLMotionProps } from 'framer-motion';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import type { HTMLMotionProps } from 'framer-motion';
 
 export default function AnimatedSection({
   children,

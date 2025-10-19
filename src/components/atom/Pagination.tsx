@@ -1,11 +1,11 @@
 import {
-  Pagination as ShadPagination,
   PaginationContent,
   PaginationItem,
-  PaginationPrevious,
   PaginationNext,
+  PaginationPrevious,
+  Pagination as ShadPagination,
 } from '@/components/ui/pagination';
-import { useReducer, ReactNode } from 'react';
+import { ReactNode, useReducer } from 'react';
 
 type PaginationState = { page: number; size: number };
 type PaginationAction =

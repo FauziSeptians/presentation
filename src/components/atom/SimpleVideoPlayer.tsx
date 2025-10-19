@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
-import { Play, Pause, Volume2, X } from 'lucide-react';
+import { Pause, Play, Volume2, X } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const SimpleVideoPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -90,7 +90,6 @@ const SimpleVideoPlayer = () => {
               setIsPlaying(true);
             })
             .catch((error: unknown) => {
-              console.log('Autoplay gagal:', error);
               video.muted = true;
               return video.play();
             })
@@ -100,9 +99,7 @@ const SimpleVideoPlayer = () => {
                 video.muted = false;
               }, 100);
             })
-            .catch((error: unknown) => {
-              console.log('Autoplay tetap gagal:', error);
-            });
+            .catch((error: unknown) => {});
         }, 100);
       }
     };
@@ -147,9 +144,7 @@ const SimpleVideoPlayer = () => {
             video.muted = false;
           }, 1000);
         })
-        .catch((error: unknown) => {
-          console.log('Autoplay gagal:', error);
-        });
+        .catch((error: unknown) => {});
     };
 
     const timer = setTimeout(startAutoplay, 500);
@@ -260,7 +255,7 @@ const SimpleVideoPlayer = () => {
                   <img
                     src={currentTrack.thumbnail}
                     alt={currentTrack.title}
-                    className='h-9 w-9 rounded-full'
+                    className="h-9 w-9 rounded-full"
                     onError={(
                       e: React.SyntheticEvent<HTMLImageElement, Event>
                     ) => {

@@ -1,9 +1,8 @@
-import { useRef } from 'react';
-import SocialMedia from '../atom/SocialMedia';
-import { CredentialsProps } from '../atom/SocialMedia';
-import { AuroraText } from '../ui/aurora-text';
-import social from '../../data/credential-data.json';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
+import social from '../../data/credential-data.json';
+import SocialMedia, { CredentialsProps } from '../atom/SocialMedia';
+import { AuroraText } from '../ui/aurora-text';
 
 export default function SocialMediaTemplates() {
   const ref = useRef(null);

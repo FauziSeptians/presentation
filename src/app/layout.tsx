@@ -1,8 +1,8 @@
+import LayoutProvider from '@/components/providers/LayoutProvider';
+import { classNames } from '@/utils/classNames';
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
-import { classNames } from '@/utils/classNames';
-import LayoutProvider from '@/components/providers/LayoutProvider';
 
 const poppins = Poppins({
   variable: '--font-poppins',

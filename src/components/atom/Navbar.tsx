@@ -1,10 +1,10 @@
 'use client';
 
+import { classNames } from '@/utils/classNames';
+import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { AuroraText } from '../ui/aurora-text';
-import { classNames } from '@/utils/classNames';
-import { Menu, X } from 'lucide-react';
 
 const sections = ['profile', 'social', 'project', 'skill', 'certification'];
 
@@ -46,7 +46,7 @@ export default function Navbar() {
   return (
     <nav
       className={classNames(
-        'sticky top-0 z-50 shadow-md transition-colors duration-300 px-6 text-white',
+        'sticky top-0 z-50 px-6 text-white shadow-md transition-colors duration-300',
         isScrolled ? 'bg-black/70 backdrop-blur-md' : 'bg-black'
       )}
     >
@@ -56,7 +56,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-6">
+        <ul className="hidden space-x-6 md:flex">
           {sections.map((section) => (
             <li key={section}>
               <a
@@ -65,7 +65,7 @@ export default function Navbar() {
                   activeSection === section
                     ? 'font-semibold text-blue-400'
                     : '!font-regular text-white opacity-70',
-                  'transition-colors !text-md tracking-wider'
+                  '!text-md tracking-wider transition-colors'
                 )}
               >
                 {activeSection === section ? (
@@ -82,7 +82,7 @@ export default function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-white"
+          className="text-white md:hidden"
           onClick={() => setIsMobileOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
@@ -92,7 +92,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMobileOpen && (
-        <div className="md:hidden px-4 pb-4 pt-2 space-y-4 bg-black/80 backdrop-blur-md">
+        <div className="space-y-4 bg-black/80 px-4 pt-2 pb-4 backdrop-blur-md md:hidden">
           {sections.map((section) => (
             <a
               key={section}
@@ -102,7 +102,7 @@ export default function Navbar() {
                 activeSection === section
                   ? 'font-semibold text-blue-400'
                   : 'text-white opacity-70',
-                'block transition-colors text-md tracking-wider'
+                'text-md block tracking-wider transition-colors'
               )}
             >
               {section.charAt(0).toUpperCase() + section.slice(1)}

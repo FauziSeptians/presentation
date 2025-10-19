@@ -1,6 +1,6 @@
+import { ImageIcon } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
-import { ImageIcon } from 'lucide-react';
 
 type OptimizedImageProps = {
   src: string;
@@ -17,7 +17,7 @@ export default function OptimizedImage({
   width,
   height,
   priority = false,
-  className = ''
+  className = '',
 }: OptimizedImageProps) {
   const [hasError, setHasError] = useState(false);
 

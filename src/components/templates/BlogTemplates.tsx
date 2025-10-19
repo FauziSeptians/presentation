@@ -1,8 +1,8 @@
 import { HtmlHTMLAttributes } from 'react';
-import { AuroraText } from '../ui/aurora-text';
-import { HeroVideoDialog } from '../ui/hero-video-dialog';
 import blog from '../../data/blog-data.json';
 import Pagination from '../atom/Pagination';
+import { AuroraText } from '../ui/aurora-text';
+import { HeroVideoDialog } from '../ui/hero-video-dialog';
 
 export default function BlogTemplates(
   props?: HtmlHTMLAttributes<HTMLDivElement>

@@ -1,19 +1,19 @@
 'use client';
 
-import ProfileTemplates from '@/components/templates/ProfileTemplates';
-import SocialMediaTemplates from '@/components/templates/SocialMediaTemplates';
-import PortofolioTemplates from '@/components/templates/PortofolioTemplates';
+import AnimatedSection from '@/components/atom/AnimatedSection';
+import SimpleVideoPlayer from '@/components/atom/SimpleVideoPlayer';
+import BlogTemplates from '@/components/templates/BlogTemplates';
+import CertificationTemplates from '@/components/templates/CertificationTemplates';
 import FooterTemplates from '@/components/templates/FooterTemplates';
 import HireMeTemplates from '@/components/templates/HireMeTemplates';
-import SkillTemplates from '@/components/templates/SkillTemplates';
-import CertificationTemplates from '@/components/templates/CertificationTemplates';
-import BlogTemplates from '@/components/templates/BlogTemplates';
+import PortofolioTemplates from '@/components/templates/PortofolioTemplates';
+import ProfileTemplates from '@/components/templates/ProfileTemplates';
 import PromotionTemplates from '@/components/templates/PromotionTemplates';
-import SimpleVideoPlayer from '@/components/atom/SimpleVideoPlayer';
+import SkillTemplates from '@/components/templates/SkillTemplates';
+import SocialMediaTemplates from '@/components/templates/SocialMediaTemplates';
+import SpacerTextTemplate from '@/components/templates/SpacerTextTemplate';
 import { TextAnimate } from '@/components/ui/text-animate';
 import { useRemoteConfigStore } from '@/stores/useRemoteConfigStore';
-import SpacerTextTemplate from '@/components/templates/SpacerTextTemplate';
-import AnimatedSection from '@/components/atom/AnimatedSection';
 
 export default function HomePage() {
   const { data, isLoading } = useRemoteConfigStore();

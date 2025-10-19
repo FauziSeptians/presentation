@@ -1,7 +1,7 @@
-import { cn } from "@/lib/utils";
-import OptimizedImage from "../atom/Image";
+import { cn } from '@/lib/utils';
+import OptimizedImage from '../atom/Image';
 
-export default function SkillCard ({
+export default function SkillCard({
   img,
   title,
   description,
@@ -37,4 +37,4 @@ export default function SkillCard ({
       </div>
     </figure>
   );
-};
+}

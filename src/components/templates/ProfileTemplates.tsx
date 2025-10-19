@@ -1,10 +1,8 @@
 'use client';
 
-import { CredentialsProps } from '../atom/SocialMedia';
-import Profile, { ProfileProps } from '../atom/Profile';
-import Image from 'next/image';
-import OptimizedImage from '../atom/Image';
 import { HtmlHTMLAttributes } from 'react';
+import OptimizedImage from '../atom/Image';
+import Profile, { ProfileProps } from '../atom/Profile';
 
 export default function ProfileTemplates(
   props?: HtmlHTMLAttributes<HTMLDivElement>

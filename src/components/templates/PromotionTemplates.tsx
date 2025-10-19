@@ -1,15 +1,15 @@
 import { useDownloadPdf } from '@/hooks/useDownloadPdf';
-import { AuroraText } from '../ui/aurora-text';
-import { Button } from '../ui/button';
 import { useToastStore } from '@/stores/useToastStore';
+import { classNames } from '@/utils/classNames'; // pastikan kamu punya helper ini
 import {
   motion,
+  useMotionValueEvent,
   useScroll,
   useTransform,
-  useMotionValueEvent,
 } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { classNames } from '@/utils/classNames'; // pastikan kamu punya helper ini
+import { AuroraText } from '../ui/aurora-text';
+import { Button } from '../ui/button';
 
 export default function PromotionTemplates() {
   const { download } = useDownloadPdf();
@@ -33,10 +33,10 @@ export default function PromotionTemplates() {
   });
 
   return (
-    <section className="h-fit md:h-[200vh] bg-black text-white">
+    <section className="h-fit bg-black text-white md:h-[200vh]">
       <motion.div
         ref={ref}
-        className="sticky top-0 flex h-fit md:h-screen items-center justify-center px-6"
+        className="sticky top-0 flex h-fit items-center justify-center px-6 md:h-screen"
       >
         <motion.div
           className={classNames(

@@ -1,15 +1,8 @@
 import { useToastStore } from '@/stores/useToastStore';
 import { classNames } from '@/utils/classNames';
 import { MotionValue, useMotionValueEvent } from 'framer-motion';
+import { Github, InstagramIcon, Linkedin, Mail } from 'lucide-react';
 import { useState } from 'react';
-import {
-  Linkedin,
-  Github,
-  Phone,
-  Instagram,
-  Mail,
-  InstagramIcon,
-} from 'lucide-react';
 
 export type CredentialsProps = {
   linkedin: string;
@@ -56,7 +49,9 @@ export default function SocialMedia({
     setAnimation(latest);
   });
 
-  const activeCount = data.filter((_, i) => animation >= 0.2 + i * 0.125).length;
+  const activeCount = data.filter(
+    (_, i) => animation >= 0.2 + i * 0.125
+  ).length;
   const progressHeight = (activeCount / data.length) * 100;
 
   return (

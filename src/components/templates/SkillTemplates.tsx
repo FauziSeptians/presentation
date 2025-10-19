@@ -1,14 +1,12 @@
-import { cn } from '@/lib/utils';
-import CardHire from '../molecules/CardHire';
-import { Marquee } from '../ui/marquee';
-import { AuroraText } from '../ui/aurora-text';
-import skills from '../../data/skill-data.json';
-import Image from 'next/image';
-import OptimizedImage from '../atom/Image';
-import SkillCard from '../molecules/SkillCard';
 import { HtmlHTMLAttributes } from 'react';
+import skills from '../../data/skill-data.json';
+import SkillCard from '../molecules/SkillCard';
+import { AuroraText } from '../ui/aurora-text';
+import { Marquee } from '../ui/marquee';
 
-export default function SkillTemplates(props?: HtmlHTMLAttributes<HTMLDivElement>) {
+export default function SkillTemplates(
+  props?: HtmlHTMLAttributes<HTMLDivElement>
+) {
   const firstRow = skills.slice(0, skills.length / 2);
   const secondRow = skills.slice(skills.length / 2);
 
@@ -18,7 +16,7 @@ export default function SkillTemplates(props?: HtmlHTMLAttributes<HTMLDivElement
         My <AuroraText>Stack</AuroraText>{' '}
       </h1>
       <>
-        <div className="relative flex w-full flex-col items-center justify-center overflow-hidden gap-3">
+        <div className="relative flex w-full flex-col items-center justify-center gap-3 overflow-hidden">
           <Marquee pauseOnHover className="[--duration:60s]">
             {firstRow.map((review) => (
               <SkillCard key={review.title} {...review} />

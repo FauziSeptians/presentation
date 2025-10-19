@@ -1,11 +1,7 @@
 // hooks/useRemoteConfigs.ts
 import { useQuery } from '@tanstack/react-query';
+import { fetchAndActivate, getBoolean } from 'firebase/remote-config';
 import { remoteConfig } from '../lib/firebase';
-import {
-  fetchAndActivate,
-  getBoolean,
-  getString,
-} from 'firebase/remote-config';
 
 export type ResponseRemoteConfig = {
   musicPlayer: boolean;

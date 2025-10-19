@@ -1,5 +1,5 @@
-export type User  = {
-    name : string,
-    phoneNumber : string;
-    age : number;
-}
+export type User = {
+  name: string;
+  phoneNumber: string;
+  age: number;
+};

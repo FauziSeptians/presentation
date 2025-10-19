@@ -1,15 +1,9 @@
 import { classNames } from '@/utils/classNames';
-import {
-  ChevronLeftCircle,
-  ChevronRightCircle,
-  LucideProps,
-} from 'lucide-react';
+import { LucideProps } from 'lucide-react';
 import {
   ForwardRefExoticComponent,
   MouseEventHandler,
   RefAttributes,
-  useReducer,
-  ReactNode,
 } from 'react';
 
 export default function ClickButton({
