@@ -20,7 +20,7 @@ export default function SkillCard({
     >
       <div className="flex h-full flex-row items-center gap-2">
         <OptimizedImage
-          className="rounded-full"
+          className="size-8 rounded-full"
           width={32}
           height={32}
           alt={title}
