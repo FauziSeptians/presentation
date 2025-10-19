@@ -1,7 +1,7 @@
 import { useToastStore } from '@/stores/useToastStore';
 import { classNames } from '@/utils/classNames';
 import { MotionValue, useMotionValueEvent } from 'framer-motion';
-import { HtmlHTMLAttributes, useState } from 'react';
+import { useState } from 'react';
 import {
   Linkedin,
   Github,
@@ -17,7 +17,6 @@ export type CredentialsProps = {
   instagram: string;
   email: string;
   scrollYProgress: MotionValue<number>;
-  props?: HtmlHTMLAttributes<HTMLDivElement>;
 };
 
 export default function SocialMedia({
@@ -26,7 +25,6 @@ export default function SocialMedia({
   instagram,
   email,
   scrollYProgress,
-  props,
 }: CredentialsProps) {
   const { showToast } = useToastStore();
   const [animation, setAnimation] = useState(0);
@@ -55,15 +53,24 @@ export default function SocialMedia({
   ];
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    console.log('Scroll progress:', latest);
     setAnimation(latest);
   });
 
-  console.log(animation);
+  const activeCount = data.filter((_, i) => animation >= 0.2 + i * 0.125).length;
+  const progressHeight = (activeCount / data.length) * 100;
 
   return (
-    <div className="relative flex w-full max-w-md flex-col gap-12" {...props}>
-      <div className="absolute left-[20px] z-0 h-full w-[5px] rounded-full bg-white/90"></div>
+    <div className="relative flex w-full max-w-md flex-col gap-12">
+      {/* Background line */}
+      <div className="absolute left-[20px] z-0 h-full w-[5px] rounded-full bg-white/20"></div>
+
+      {/* Progress line */}
+      <div
+        className="absolute left-[20px] z-10 w-[5px] rounded-full bg-white transition-all duration-300"
+        style={{ height: `${progressHeight}%` }}
+      ></div>
+
+      {/* Items */}
       {data.map((item, index) => {
         const start = 0.2 + index * 0.125;
         const isActive = animation >= start;
@@ -71,11 +78,16 @@ export default function SocialMedia({
         return (
           <div
             key={item.val}
-            className={classNames(
-              'group z-10 flex flex-row items-center gap-3'
-            )}
+            className="group z-10 flex flex-row items-center gap-3"
           >
-            <div className="rounded-full border-2 border-white bg-black p-3 text-white transition-colors duration-300 group-hover:bg-white group-hover:text-black">
+            <div
+              className={classNames(
+                'rounded-full p-3 text-white transition-all duration-300',
+                isActive
+                  ? 'border-2 border-white bg-black opacity-100'
+                  : 'border-2 border-black/30 bg-black/30 opacity-50'
+              )}
+            >
               {item.icon}
             </div>
             <button
