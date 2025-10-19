@@ -8,14 +8,16 @@ const poppins = Poppins({
   variable: '--font-poppins',
   subsets: ['latin'],
   display: 'swap',
-  weight: ['400', '500', '600', '700'], // tambahkan variasi berat jika perlu
+  weight: ['400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
-  title: 'Fauziseptians – Frontend Developer',
+  title: 'Fauziseptians – Sotware Developer',
   description:
-    'Portofolio digital Fauzi Septians, seorang frontend developer yang fokus pada desain modern, performa tinggi, dan pengalaman pengguna yang optimal.',
+    'Portofolio digital Fauzi Septians, seorang software developer yang fokus pada desain modern, performa tinggi, dan pengalaman pengguna yang optimal.',
   keywords: [
+    'software developer',
+    'FE',
     'muhammad fauzi septiana putra',
     'Fauziseptians',
     'Fauzi Septians',
@@ -32,9 +34,9 @@ export const metadata: Metadata = {
   authors: [{ name: 'Fauzi Septians', url: 'https://fauziseptians.com' }],
   creator: 'Fauzi Septians',
   openGraph: {
-    title: 'Fauziseptians – Frontend Developer',
+    title: 'Fauziseptians – Software Developer',
     description:
-      'Lihat karya dan pengalaman Fauzi Septians sebagai frontend developer yang berfokus pada UI modern dan performa tinggi.',
+      'Lihat karya dan pengalaman Fauzi Septians sebagai software developer yang berfokus pada UI modern dan performa tinggi.',
     url: 'https://fauziseptians.com',
     siteName: 'Fauziseptians Portfolio',
     images: [
