@@ -1,6 +1,12 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  compress: true,
+  poweredByHeader: false,
+  generateEtags: false,
+  httpAgentOptions: {
+    keepAlive: false,
+  },
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'plus.unsplash.com' },
