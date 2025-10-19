@@ -1,7 +1,7 @@
 'use client';
 
 import { HtmlHTMLAttributes, useState } from 'react';
-import portoflio from '../../data/portofolio-data.json';
+import portofolio from '../../data/portofolio-data.json';
 import { CardPortofolio } from '../atom/Card';
 import { RainbowButton } from '../ui/rainbow-button';
 import { RetroGrid } from '../ui/retro-grid';
@@ -10,8 +10,8 @@ export default function PortofolioTemplates(
   props?: HtmlHTMLAttributes<HTMLDivElement>
 ) {
   const [visibleCount, setVisibleCount] = useState(6);
-  const visibleItems = portoflio.slice(0, visibleCount);
-  const hasMore = visibleCount < portoflio.length;
+  const visibleItems = portofolio.slice(0, visibleCount);
+  const hasMore = visibleCount < portofolio.length;
 
   const handleShowMore = () => {
     setVisibleCount((prev) => prev + 6);

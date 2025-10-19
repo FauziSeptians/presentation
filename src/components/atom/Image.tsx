@@ -1,3 +1,4 @@
+import { classNames } from '@/utils/classNames';
 import { ImageIcon } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -23,8 +24,10 @@ export default function OptimizedImage({
 
   return hasError ? (
     <div
-      className={`flex items-center justify-center bg-gray-100 text-gray-500 ${className}`}
-      style={{ width, height }}
+      className={classNames(
+        'flex items-center justify-center bg-gray-100 text-gray-500',
+        className
+      )}
     >
       <ImageIcon size={Math.min(width, height) * 0.6} />
     </div>
