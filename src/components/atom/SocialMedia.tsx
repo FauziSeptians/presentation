@@ -1,13 +1,20 @@
 import { useToastStore } from '@/stores/useToastStore';
 import { classNames } from '@/utils/classNames';
 import { MotionValue, useMotionValueEvent } from 'framer-motion';
-import { Box, Computer, EarthIcon, Phone } from 'lucide-react';
 import { HtmlHTMLAttributes, useState } from 'react';
+import {
+  Linkedin,
+  Github,
+  Phone,
+  Instagram,
+  Mail,
+  InstagramIcon,
+} from 'lucide-react';
 
 export type CredentialsProps = {
   linkedin: string;
   github: string;
-  phoneNumber: string;
+  instagram: string;
   email: string;
   scrollYProgress: MotionValue<number>;
   props?: HtmlHTMLAttributes<HTMLDivElement>;
@@ -16,7 +23,7 @@ export type CredentialsProps = {
 export default function SocialMedia({
   linkedin,
   github,
-  phoneNumber,
+  instagram,
   email,
   scrollYProgress,
   props,
@@ -26,21 +33,25 @@ export default function SocialMedia({
 
   const data = [
     {
-      icon: <Computer size={17} />,
+      icon: <Linkedin size={17} />,
       val: linkedin,
       title: 'linkedin',
     },
     {
-      icon: <EarthIcon size={17} />,
+      icon: <Github size={17} />,
       val: github,
       title: 'github',
     },
     {
-      icon: <Phone size={17} />,
-      val: phoneNumber,
-      title: 'phone number',
+      icon: <InstagramIcon size={17} />,
+      val: instagram,
+      title: 'instagram',
     },
-    { icon: <Box size={17} />, val: email, title: 'email' },
+    {
+      icon: <Mail size={17} />,
+      val: email,
+      title: 'email',
+    },
   ];
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {

@@ -20,19 +20,13 @@ export default function SocialMediaTemplates() {
     [0.8, 1.2, 0.9]
   );
 
-  const credValue: CredentialsProps = {
-    linkedin: social?.linkedin,
-    github: social?.github,
-    phoneNumber: social?.phoneNumber,
-    email: social?.email,
-    scrollYProgress,
-  };
+  const credValue: CredentialsProps = { ...social, scrollYProgress };
 
   return (
     <section className="h-fit bg-black text-white md:h-[200vh]">
       <motion.div
         ref={ref}
-        className="sticky top-0 flex md:h-screen flex-col items-center justify-between gap-12 px-10 md:flex-row md:gap-0"
+        className="sticky top-0 flex flex-col items-center justify-between gap-12 px-10 md:h-screen md:flex-row md:gap-0"
       >
         <motion.h1
           style={{ y: yTitle, scale: scaleTitle }}
