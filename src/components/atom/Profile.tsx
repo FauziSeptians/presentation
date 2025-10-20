@@ -10,7 +10,7 @@ export type ProfileProps = {
 export default function Profile({ name, img, role, age }: ProfileProps) {
   const names = `Hi, I'M ${name}`;
   return (
-    <div className="flex w-full items-center justify-between gap-4 text-white">
+    <div className="flex w-full items-center justify-between gap-4 text-black dark:text-white">
       <div className="flex w-full max-w-lg flex-col gap-6">
         <div className="flex flex-col gap-3">
           <HyperText className="!text-md !tracking-widest !uppercase">

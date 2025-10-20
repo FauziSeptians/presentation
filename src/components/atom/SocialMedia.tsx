@@ -57,11 +57,11 @@ export default function SocialMedia({
   return (
     <div className="relative flex w-full max-w-md flex-col gap-12">
       {/* Background line */}
-      <div className="absolute left-[20px] z-0 h-full w-[5px] rounded-full bg-white/20"></div>
+      <div className="absolute left-[20px] z-0 h-full w-[5px] rounded-full dark:bg-white/20"></div>
 
       {/* Progress line */}
       <div
-        className="absolute left-[20px] z-10 w-[5px] rounded-full bg-white transition-all duration-300"
+        className="absolute left-[20px] z-10 w-[5px] rounded-full bg-black transition-all duration-300 dark:bg-white"
         style={{ height: `${progressHeight}%` }}
       ></div>
 
@@ -96,14 +96,14 @@ export default function SocialMedia({
               <span
                 className={classNames(
                   'relative z-10 truncate overflow-hidden text-xs whitespace-nowrap transition-colors duration-300 group-hover:text-black md:text-base',
-                  isActive ? 'text-black' : ''
+                  isActive ? 'text-white dark:text-black' : ''
                 )}
               >
                 {item.val}
               </span>
               <span
                 className={classNames(
-                  'absolute top-0 left-0 h-full bg-white transition-all duration-500',
+                  'absolute top-0 left-0 h-full bg-black transition-all duration-500 dark:bg-white',
                   isActive ? 'w-full' : 'w-0'
                 )}
               ></span>

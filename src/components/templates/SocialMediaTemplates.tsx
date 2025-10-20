@@ -22,14 +22,14 @@ export default function SocialMediaTemplates() {
   const credValue: CredentialsProps = { ...social, scrollYProgress };
 
   return (
-    <section className="h-fit bg-black text-white md:h-[200vh]">
+    <section className="h-fit text-white md:h-[200vh] dark:bg-black">
       <motion.div
         ref={ref}
         className="sticky top-0 flex flex-col items-center justify-between gap-12 px-10 md:h-screen md:flex-row md:gap-0"
       >
         <motion.h1
           style={{ y: yTitle, scale: scaleTitle }}
-          className="flex flex-col text-center text-4xl font-bold tracking-tighter md:text-start md:text-5xl lg:text-7xl"
+          className="dark:text-whitte flex flex-col text-center text-4xl font-bold tracking-tighter text-black md:text-start md:text-5xl lg:text-7xl"
         >
           My <AuroraText>Social Media</AuroraText>
         </motion.h1>

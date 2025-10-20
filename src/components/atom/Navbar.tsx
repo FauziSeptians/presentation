@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { AuroraText } from '../ui/aurora-text';
+import ThemeToggle from './ThemeToggle';
 
 const sections = ['profile', 'social', 'project', 'skill', 'certification'];
 
@@ -46,8 +47,10 @@ export default function Navbar() {
   return (
     <nav
       className={classNames(
-        'sticky top-0 z-50 px-6 text-white shadow-md transition-colors duration-300',
-        isScrolled ? 'bg-black/70 backdrop-blur-md' : 'bg-black'
+        'sticky top-0 z-50 px-6 text-black shadow-md transition-colors duration-300 dark:text-white',
+        isScrolled
+          ? 'bg-white/20 backdrop-blur-md dark:bg-black/70'
+          : 'bg-white dark:bg-black'
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
@@ -64,7 +67,7 @@ export default function Navbar() {
                 className={classNames(
                   activeSection === section
                     ? 'font-semibold text-blue-400'
-                    : '!font-regular text-white opacity-70',
+                    : '!font-regular opacity-70 dark:text-white',
                   '!text-md tracking-wider transition-colors'
                 )}
               >
@@ -88,6 +91,7 @@ export default function Navbar() {
         >
           {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
+        <ThemeToggle />
       </div>
 
       {/* Mobile Menu */}

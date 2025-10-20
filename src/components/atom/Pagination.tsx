@@ -69,7 +69,7 @@ export default function Pagination<T>({
       <div>{children(paginatedData)}</div>
 
       <ShadPagination className="mt-4 flex justify-end pr-4">
-        <PaginationContent className="flex items-center gap-1 text-white">
+        <PaginationContent className="flex items-center gap-1 text-black dark:text-white">
           {pagination.page > 0 && (
             <PaginationItem className="cursor-pointer">
               <PaginationPrevious onClick={() => dispatch({ type: 'PREV' })} />
@@ -82,7 +82,7 @@ export default function Pagination<T>({
                 onClick={() => dispatch({ type: 'GOTO', page: index })}
                 className={`cursor-pointer rounded-md px-3 py-1 ${
                   pagination.page === index
-                    ? 'bg-white font-bold text-black'
+                    ? 'bg-black font-bold text-white dark:bg-white dark:text-black'
                     : 'bg-transparent hover:bg-white/20'
                 }`}
               >
