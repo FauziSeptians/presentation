@@ -47,18 +47,20 @@ export default function Navbar() {
   return (
     <nav
       className={classNames(
-        'sticky top-0 z-50 px-6 text-black shadow-md transition-colors duration-300 dark:text-white',
+        'sticky top-0 z-50 px-6 transition-colors duration-300',
         isScrolled
-          ? 'bg-white/20 backdrop-blur-md dark:bg-black/70'
-          : 'bg-white dark:bg-black'
+          ? 'bg-white/70 text-black backdrop-blur-md dark:bg-zinc-900/70 dark:text-white'
+          : 'bg-white text-black dark:bg-zinc-900 dark:text-white'
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
-        <Link href="/" className="text-xl text-blue-600">
+        <Link
+          href="/"
+          className="text-xl font-bold text-blue-600 dark:text-blue-400"
+        >
           <AuroraText>Fauziseptians</AuroraText>
         </Link>
 
-        {/* Desktop Menu */}
         <ul className="hidden space-x-6 md:flex">
           {sections.map((section) => (
             <li key={section}>
@@ -66,9 +68,9 @@ export default function Navbar() {
                 href={`#${section}`}
                 className={classNames(
                   activeSection === section
-                    ? 'font-semibold text-blue-400'
-                    : '!font-regular opacity-70 dark:text-white',
-                  '!text-md tracking-wider transition-colors'
+                    ? 'font-semibold text-blue-500 dark:text-blue-400'
+                    : 'text-gray-600 dark:text-gray-300',
+                  'text-md tracking-wider transition-colors hover:text-blue-500 dark:hover:text-blue-400'
                 )}
               >
                 {activeSection === section ? (
@@ -83,20 +85,21 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Mobile Toggle */}
         <button
-          className="text-white md:hidden"
+          className="text-gray-800 md:hidden dark:text-white"
           onClick={() => setIsMobileOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
           {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-        <ThemeToggle />
+
+        <div className="hidden md:block">
+          <ThemeToggle />
+        </div>
       </div>
 
-      {/* Mobile Menu */}
       {isMobileOpen && (
-        <div className="space-y-4 bg-black/80 px-4 pt-2 pb-4 backdrop-blur-md md:hidden">
+        <div className="space-y-4 bg-white px-4 pt-2 pb-4 transition-colors duration-300 md:hidden dark:bg-zinc-900">
           {sections.map((section) => (
             <a
               key={section}
@@ -104,14 +107,15 @@ export default function Navbar() {
               onClick={() => setIsMobileOpen(false)}
               className={classNames(
                 activeSection === section
-                  ? 'font-semibold text-blue-400'
-                  : 'text-white opacity-70',
-                'text-md block tracking-wider transition-colors'
+                  ? 'font-semibold text-blue-500 dark:text-blue-400'
+                  : 'text-gray-700 dark:text-gray-300',
+                'text-md block tracking-wider transition-colors hover:text-blue-500 dark:hover:text-blue-400'
               )}
             >
               {section.charAt(0).toUpperCase() + section.slice(1)}
             </a>
           ))}
+          <ThemeToggle />
         </div>
       )}
     </nav>
