@@ -30,7 +30,7 @@ export default function PromotionTemplates() {
   });
 
   return (
-    <section className="h-fit bg-black text-white md:h-[200vh]">
+    <section className="h-fit bg-white text-black md:h-[200vh] dark:bg-black dark:text-white">
       <motion.div
         ref={ref}
         className="sticky top-0 flex h-fit items-center justify-center px-6 md:h-screen"
@@ -48,7 +48,7 @@ export default function PromotionTemplates() {
 
           {/* Layer solid black background */}
           <motion.div
-            className="absolute inset-0 z-0 rounded-xl bg-black"
+            className="absolute inset-0 z-0 rounded-xl bg-white dark:bg-black"
             animate={{ opacity: isGradientActive ? 0 : 1 }}
             transition={{ duration: 0.6, ease: 'easeInOut' }}
           />
@@ -84,7 +84,7 @@ export default function PromotionTemplates() {
 
               <a
                 href="mailto:muhammad.putra1418@gmail.com?subject=Let's%20Work%20Together&body=Hi%20Fauzi,%0AI%20saw%20your%20portfolio%20and%20would%20love%20to%20connect!"
-                className="flex w-full items-center justify-center rounded-md bg-white px-6 py-2 text-sm text-black transition hover:bg-white/90 md:w-auto md:text-base"
+                className="flex w-full items-center justify-center rounded-md bg-black px-6 py-2 text-sm text-black transition hover:bg-white/90 md:w-auto md:text-base dark:bg-white"
               >
                 <AuroraText>Email Me</AuroraText>
               </a>

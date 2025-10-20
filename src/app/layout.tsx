@@ -1,4 +1,5 @@
 import LayoutProvider from '@/components/providers/LayoutProvider';
+import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { classNames } from '@/utils/classNames';
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
@@ -58,9 +59,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" translate="yes">
       <body className={classNames(poppins.variable, 'antialiased')}>
-        <LayoutProvider>{children}</LayoutProvider>
+        <ThemeProvider>
+          <LayoutProvider>{children}</LayoutProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

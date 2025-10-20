@@ -20,7 +20,7 @@ export default function HomePage() {
 
   if (isLoading)
     return (
-      <div className="flex h-screen items-center justify-center bg-black text-white">
+      <div className="flex h-screen items-center justify-center bg-white text-black dark:bg-black dark:text-white">
         <TextAnimate animation="blurIn" as="h1">
           Loading.....
         </TextAnimate>
@@ -28,7 +28,7 @@ export default function HomePage() {
     );
 
   return (
-    <div className="min-h-screen w-full bg-black pt-16">
+    <div className="min-h-screen w-full bg-white pt-16 dark:bg-black">
       {data?.musicPlayer && <SimpleVideoPlayer />}
 
       <div className="mx-auto flex h-full w-full max-w-6xl flex-col gap-36">

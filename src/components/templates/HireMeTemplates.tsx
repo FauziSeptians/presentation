@@ -32,7 +32,7 @@ export default function HireMeTemplates(
         <AuroraText>Why Hire Me</AuroraText>
       </h1>
 
-      <div className="flex w-full flex-col gap-5 text-justify text-white md:flex-row md:px-8">
+      <div className="flex w-full flex-col gap-5 text-justify text-black md:flex-row md:px-8 dark:text-white">
         {hireMe.map((item, index) => (
           <motion.div
             key={item?.title}

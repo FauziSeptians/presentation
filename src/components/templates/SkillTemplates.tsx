@@ -12,7 +12,7 @@ export default function SkillTemplates(
 
   return (
     <div className="flex h-96 flex-col gap-12 px-6" {...props}>
-      <h1 className="flex gap-3 text-center text-4xl font-bold tracking-tighter text-white md:text-start md:text-5xl lg:text-7xl">
+      <h1 className="flex gap-3 text-center text-4xl font-bold tracking-tighter text-black md:text-start md:text-5xl lg:text-7xl dark:text-white">
         My <AuroraText>Stack</AuroraText>{' '}
       </h1>
       <>

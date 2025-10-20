@@ -6,7 +6,7 @@ export default function FooterTemplates(
 ) {
   return (
     <footer
-      className="w-full border-t border-neutral-800 bg-black px-6 py-10 text-white"
+      className="w-full border-t border-neutral-800 bg-white px-6 py-10 text-black dark:bg-black dark:text-white"
       {...props}
     >
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 md:flex-row">
