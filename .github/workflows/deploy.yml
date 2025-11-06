@@ -3,7 +3,7 @@ name: Deploy Next.js with Dockerfile
 on:
   push:
     branches:
-      - main
+      - release/prod
 
 jobs:
   deploy:
