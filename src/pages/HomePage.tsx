@@ -28,7 +28,7 @@ export default function HomePage() {
     );
 
   return (
-    <div className="min-h-screen w-full bg-white pt-16 dark:bg-black">
+    <div className="min-h-screen w-full bg-white pt-16 md:pt-0 dark:bg-black">
       {data?.musicPlayer && <SimpleVideoPlayer />}
 
       <div className="mx-auto flex h-full w-full max-w-6xl flex-col gap-36">
