@@ -1,14 +1,17 @@
 import { cn } from '@/lib/utils';
+import { ComponentType, SVGProps } from 'react';
 import OptimizedImage from '../atom/Image';
 
 export default function SkillCard({
   img,
   title,
   description,
+  icon: Icon,
 }: {
-  img: string;
+  img?: string;
   title: string;
   description: string;
+  icon?: ComponentType<SVGProps<SVGSVGElement>>;
 }) {
   return (
     <figure
@@ -19,13 +22,16 @@ export default function SkillCard({
       )}
     >
       <div className="flex h-full flex-row items-center gap-2">
-        <OptimizedImage
-          className="size-8 rounded-full"
-          width={32}
-          height={32}
-          alt={title}
-          src={img}
-        />
+        {Icon && <Icon className="size-8" />} {/* ⬅️ Ubah jadi size-8 */}
+        {img && (
+          <OptimizedImage
+            className="size-8 rounded-full"
+            width={32}
+            height={32}
+            alt={title}
+            src={img}
+          />
+        )}
         <div className="flex flex-col">
           <figcaption className="text-sm font-medium text-gray-900 dark:text-white">
             {title}

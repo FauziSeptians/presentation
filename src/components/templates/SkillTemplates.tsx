@@ -1,5 +1,5 @@
 import { HtmlHTMLAttributes } from 'react';
-import skills from '../../data/skill-data.json';
+import { skillsData } from '../../data/skill-data';
 import SkillCard from '../molecules/SkillCard';
 import { AuroraText } from '../ui/aurora-text';
 import { Marquee } from '../ui/marquee';
@@ -7,8 +7,8 @@ import { Marquee } from '../ui/marquee';
 export default function SkillTemplates(
   props?: HtmlHTMLAttributes<HTMLDivElement>
 ) {
-  const firstRow = skills.slice(0, skills.length / 2);
-  const secondRow = skills.slice(skills.length / 2);
+  const firstRow = skillsData.slice(0, skillsData.length / 2);
+  const secondRow = skillsData.slice(skillsData.length / 2);
 
   return (
     <div className="flex h-96 flex-col gap-12 px-6" {...props}>

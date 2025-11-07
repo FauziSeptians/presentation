@@ -1,0 +1,127 @@
+import { ComponentType, SVGProps } from 'react';
+import {
+  AxiosIcon,
+  CssIcon,
+  DockerIcon,
+  EslintIcon,
+  GitIcon,
+  GithubActionsIcon,
+  GithubIcon,
+  GitlabIcon,
+  HtmlIcon,
+  HuskyIcon,
+  I18nIcon,
+  JsIcon,
+  MarkdownIcon,
+  NextIcon,
+  NginxIcon,
+  PostgresIcon,
+  PostmanIcon,
+  PrettierIcon,
+  ReactIcon,
+  RedisIcon,
+  RqueryIcon,
+  SentryIcon,
+  SonarqubeIcon,
+  SqlIcon,
+  StoryBookIcon,
+  SwaggerIcon,
+  TailwindIcon,
+  TypescriptIcon,
+  ViteIcon,
+  VitestIcon,
+  VscodeIcon,
+  ZustandIcon,
+} from '../../public/icons/main';
+
+export const skillsData: {
+  title: string;
+  description: string;
+  icon?: ComponentType<SVGProps<SVGSVGElement>>;
+  img?: string;
+}[] = [
+  { title: 'JavaScript', description: 'Programming Language', icon: JsIcon },
+  {
+    title: 'TypeScript',
+    description: 'Programming Language',
+    icon: TypescriptIcon,
+  },
+  { title: 'HTML', description: 'Markup Language', icon: HtmlIcon },
+  { title: 'CSS', description: 'Style Language', icon: CssIcon },
+  { title: 'SQL', description: 'Database Query Language', icon: SqlIcon },
+  { title: 'Next.js', description: 'Frontend Framework', icon: NextIcon },
+  { title: 'React.js', description: 'Frontend Library', icon: ReactIcon },
+  {
+    title: 'React Query',
+    description: 'State & Data Management',
+    icon: RqueryIcon,
+  },
+  { title: 'Zustand', description: 'State Management', icon: ZustandIcon },
+  {
+    title: 'Tailwind CSS',
+    description: 'CSS Framework',
+    icon: TailwindIcon,
+  },
+  { title: 'Axios', description: 'HTTP Client', icon: AxiosIcon },
+  {
+    title: 'Prettier',
+    description: 'Code Formatter',
+    icon: PrettierIcon,
+  },
+  {
+    title: 'Husky',
+    description: 'Development Tool',
+    icon: HuskyIcon,
+  },
+  { title: 'ESLint', description: 'Linting Tool', icon: EslintIcon },
+  { title: 'Git', description: 'Version Control', icon: GitIcon },
+  { title: 'GitHub', description: 'Code Hosting Platform', icon: GithubIcon },
+  { title: 'GitLab', description: 'DevOps Platform', icon: GitlabIcon },
+  {
+    title: 'GitHub Actions',
+    description: 'CI/CD Tool',
+    icon: GithubActionsIcon,
+  },
+  { title: 'Vitest', description: 'Testing Framework', icon: VitestIcon },
+  {
+    title: 'Storybook',
+    description: 'UI Component Explorer',
+    icon: StoryBookIcon,
+  },
+  {
+    title: 'Swagger',
+    description: 'API Documentation Tool',
+    icon: SwaggerIcon,
+  },
+  {
+    title: 'Markdown',
+    description: 'Lightweight Markup Language',
+    icon: MarkdownIcon,
+  },
+  {
+    title: 'Nginx',
+    description: 'Web Server & Reverse Proxy',
+    icon: NginxIcon,
+  },
+  {
+    title: 'PostgreSQL',
+    description: 'Relational Database',
+    icon: PostgresIcon,
+  },
+  { title: 'Redis', description: 'Caching & Message Broker', icon: RedisIcon },
+  { title: 'Postman', description: 'API Testing Tool', icon: PostmanIcon },
+  { title: 'SonarQube', description: 'Code Quality Tool', icon: SonarqubeIcon },
+  { title: 'Docker', description: 'Containerization Tool', icon: DockerIcon },
+  { title: 'Vite', description: 'Frontend Build Tool', icon: ViteIcon },
+  { title: 'VS Code', description: 'Code Editor', icon: VscodeIcon },
+  {
+    title: 'Sentry',
+    description: 'Monitoring & Observability',
+    icon: SentryIcon,
+  },
+  {
+    title: 'i18n',
+    description: 'Internationalization',
+    icon: I18nIcon,
+  },
+];
