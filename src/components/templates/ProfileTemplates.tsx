@@ -16,7 +16,7 @@ export default function ProfileTemplates(
 
   return (
     <div
-      className="flex w-full items-center justify-between px-6 py-3"
+      className="flex w-full items-center justify-between px-6 py-3 md:h-screen md:py-0"
       {...props}
     >
       <Profile
