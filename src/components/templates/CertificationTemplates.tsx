@@ -23,7 +23,7 @@ export default function CertificationTemplates(
                   image={item?.image}
                   alt={item?.title}
                   description={item?.description}
-                  link={item?.url}
+                  link={{ web: item?.url }}
                 />
               ))}
             </div>

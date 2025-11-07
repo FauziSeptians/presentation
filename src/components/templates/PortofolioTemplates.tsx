@@ -39,8 +39,10 @@ export default function PortofolioTemplates(
               title={item?.title}
               image={item?.image}
               alt={item?.title}
-              link={item?.url}
+              link={{ github: item?.url?.github, web: item?.url?.web }}
               description={item?.description}
+              tags={item?.tag}
+              category={item?.category}
             />
           ))}
         </div>

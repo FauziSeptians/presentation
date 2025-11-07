@@ -3,5 +3,11 @@ export type CardTypes = {
   description: string;
   image: string;
   alt: string;
-  link?: string;
+  link?: {
+    web?: string;
+    github?: string;
+  };
+  tags?: string[];
+  category?: string;
+  className?: string;
 };
