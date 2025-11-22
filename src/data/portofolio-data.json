@@ -1,5 +1,4 @@
-[
-  {
+[{
     "title": "Frontend Next JS - Boilerplate",
     "description": "Developed a comprehensive Next.js Boilerplate featuring Docker support, GitHub Actions CI/CD, ESLint configuration, and pre-built project structure to accelerate frontend development.",
     "category": "Boilerplate / Starter Kit",
