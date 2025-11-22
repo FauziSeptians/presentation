@@ -35,6 +35,9 @@ const nextConfig: NextConfig = {
   httpAgentOptions: {
     keepAlive: false,
   },
+  images: {
+    domains: ['assets.fauziseptians.com'],
+  },
 };
 
 export default nextConfig;
