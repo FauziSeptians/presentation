@@ -5,7 +5,6 @@
 
 :root {
   font-family: var(--font-poppins), sans-serif;
-  cursor: url('/assets/cursor.png'), auto;
   --color-1: oklch(66.2% 0.225 25.9);
   --color-2: oklch(60.4% 0.26 302);
   --color-3: oklch(69.6% 0.165 251);
@@ -15,7 +14,6 @@
 
 body {
   font-family: var(--font-poppins), sans-serif;
-  cursor: url('/assets/sunny.png'), auto;
 }
 
 @theme inline {
