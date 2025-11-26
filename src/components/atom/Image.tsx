@@ -40,8 +40,7 @@ export default function OptimizedImage({
       priority={priority}
       className={className}
       onError={() => setHasError(true)}
-      placeholder="blur"
-      blurDataURL="/blur-placeholder.png"
+      quality={65}
     />
   );
 }
