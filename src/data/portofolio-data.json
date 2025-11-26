@@ -4,7 +4,7 @@
     "description": "Developed a comprehensive Next.js Boilerplate featuring Docker support, GitHub Actions CI/CD, ESLint configuration, and pre-built project structure to accelerate frontend development.",
     "category": "Boilerplate / Starter Kit",
     "tag": ["Next.js", "TypeScript", "Docker", "GitHub Actions", "ESLint"],
-    "image": "https://assets.fauziseptians.com/portofolio/nextjs.jpeg",
+    "image": "https://assets.fauziseptians.com/portofolio/nextjs.webp",
     "url": {
       "github": "https://github.com/FauziSeptians/fe-boilerplate"
     }
@@ -14,7 +14,7 @@
     "description": "Created a reusable React component library using Vite, packaged and published to npm for easy integration across projects.",
     "category": "UI Component Library",
     "tag": ["React", "TypeScript", "Vite", "NPM"],
-    "image": "https://assets.fauziseptians.com/portofolio/npm.jpg",
+    "image": "https://assets.fauziseptians.com/portofolio/npm.webp",
     "url": {
       "github": "https://github.com/FauziSeptians/zsanss-ui"
     }
@@ -24,7 +24,7 @@
     "description": "A clean and informative landing page for ND Merbau, a direct supplier of merbau, bamboo, and composite products. The site showcases high-quality design solutions for decking and fencing, targeting both wholesale and retail customers.",
     "category": "Company Landing Page",
     "tag": ["Next.js", "TypeScript", "Tailwind CSS"],
-    "image": "https://assets.fauziseptians.com/portofolio/nextjs.jpeg",
+    "image": "https://assets.fauziseptians.com/portofolio/nextjs.webp",
     "url": {
       "web": "https://ndmerbau-landing-page.vercel.app/"
     }
@@ -34,7 +34,7 @@
     "description": "A property listing platform offering curated real estate options across Bandung and West Java. The site features detailed property cards, image galleries, and service offerings including consultation and financing solutions for families and investors.",
     "category": "Real Estate Platform",
     "tag": ["Next.js", "TypeScript", "Tailwind CSS", "React Query"],
-    "image": "https://assets.fauziseptians.com/portofolio/nextjs.jpeg",
+    "image": "https://assets.fauziseptians.com/portofolio/nextjs.webp",
     "url": {
       "web": "https://prestasiproperty.vercel.app/"
     }
@@ -44,7 +44,7 @@
     "description": "Built an integrated IoT and web application for pollution monitoring using Next.js frontend and Arduino-based sensors with C++.",
     "category": "IoT Dashboard",
     "tag": ["Next.js", "TypeScript", "C++", "Tailwind CSS"],
-    "image": "https://assets.fauziseptians.com/portofolio/polution-detection.jpg",
+    "image": "https://assets.fauziseptians.com/portofolio/polution-detection.webp",
     "url": {
       "github": "https://github.com/FauziSeptians/PolutionDetectionProject"
     }
@@ -54,7 +54,7 @@
     "description": "Developed solutions for Travelies, a major travel marketplace platform connecting millions of travelers with destinations and accommodations across Indonesia and beyond.",
     "category": "Travel Marketplace",
     "tag": ["HTML", "CSS", "JavaScript", "Figma"],
-    "image": "https://assets.fauziseptians.com/portofolio/travelies.jpg",
+    "image": "https://assets.fauziseptians.com/portofolio/travelies.webp",
     "url": {
       "web": "https://www.linkedin.com/in/muhammadfauzi14/details/projects/1635537195940/single-media-viewer/?profileId=ACoAADYVFcsBnQaIQ-ibr5jdG2oJEA5oSJe7hbE"
     }
@@ -64,7 +64,7 @@
     "description": "Built VA Cash, an Android mobile app for game top-up transactions, handling both UI/UX design and development using Java.",
     "category": "Mobile App",
     "tag": ["Java", "Axure RP"],
-    "image": "https://assets.fauziseptians.com/portofolio/vacash.jpg",
+    "image": "https://assets.fauziseptians.com/portofolio/vacash.webp",
     "url": {
       "web": "https://www.linkedin.com/in/muhammadfauzi14/details/projects/1635537205295/single-media-viewer/?profileId=ACoAADYVFcsBnQaIQ-ibr5jdG2oJEA5oSJe7hbE"
     }

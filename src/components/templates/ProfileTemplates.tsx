@@ -27,7 +27,7 @@ export default function ProfileTemplates(
       />
       <div className="relative hidden w-full items-center justify-center md:flex">
         <OptimizedImage
-          src="/images/images-porto.png"
+          src="https://assets.fauziseptians.com/portofolio/images-porto.webp"
           alt="zoro"
           width={390}
           height={100}
