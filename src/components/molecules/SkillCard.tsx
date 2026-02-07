@@ -1,17 +1,18 @@
+// components/SkillCard.tsx
 import { cn } from '@/lib/utils';
-import { ComponentType, SVGProps } from 'react';
 import OptimizedImage from '../atom/Image';
 
 export default function SkillCard({
   img,
   title,
   description,
-  icon: Icon,
+  Icon,
 }: {
   img?: string;
   title: string;
   description: string;
-  icon?: ComponentType<SVGProps<SVGSVGElement>>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  Icon?: any;
 }) {
   return (
     <figure
@@ -22,7 +23,7 @@ export default function SkillCard({
       )}
     >
       <div className="flex h-full flex-row items-center gap-2">
-        {Icon && <Icon className="size-8" />} {/* ⬅️ Ubah jadi size-8 */}
+        <OptimizedImage src={Icon.src} width={32} height={32} alt={Icon.src} />
         {img && (
           <OptimizedImage
             className="size-8 rounded-full"

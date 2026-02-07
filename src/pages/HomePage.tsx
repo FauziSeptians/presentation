@@ -1,36 +1,45 @@
 'use client';
 
 import AnimatedSection from '@/components/atom/AnimatedSection';
-import SimpleVideoPlayer from '@/components/atom/SimpleVideoPlayer';
-import BlogTemplates from '@/components/templates/BlogTemplates';
-import CertificationTemplates from '@/components/templates/CertificationTemplates';
-import FooterTemplates from '@/components/templates/FooterTemplates';
 import HireMeTemplates from '@/components/templates/HireMeTemplates';
-import PortofolioTemplates from '@/components/templates/PortofolioTemplates';
 import ProfileTemplates from '@/components/templates/ProfileTemplates';
-import PromotionTemplates from '@/components/templates/PromotionTemplates';
-import SkillTemplates from '@/components/templates/SkillTemplates';
-import SocialMediaTemplates from '@/components/templates/SocialMediaTemplates';
-import SpacerTextTemplate from '@/components/templates/SpacerTextTemplate';
-import { TextAnimate } from '@/components/ui/text-animate';
-import { useRemoteConfigStore } from '@/stores/useRemoteConfigStore';
+import dynamic from 'next/dynamic';
+
+const SocialMediaTemplates = dynamic(
+  () => import('@/components/templates/SocialMediaTemplates')
+);
+
+const PortofolioTemplates = dynamic(
+  () => import('@/components/templates/PortofolioTemplates')
+);
+
+const SkillTemplates = dynamic(
+  () => import('@/components/templates/SkillTemplates')
+);
+
+const PromotionTemplates = dynamic(
+  () => import('@/components/templates/PromotionTemplates')
+);
+
+const CertificationTemplates = dynamic(
+  () => import('@/components/templates/CertificationTemplates')
+);
+
+const BlogTemplates = dynamic(
+  () => import('@/components/templates/BlogTemplates')
+);
+
+const SpacerTextTemplate = dynamic(
+  () => import('@/components/templates/SpacerTextTemplate')
+);
+
+const FooterTemplates = dynamic(
+  () => import('@/components/templates/FooterTemplates')
+);
 
 export default function HomePage() {
-  const { data, isLoading } = useRemoteConfigStore();
-
-  if (isLoading)
-    return (
-      <div className="flex h-screen items-center justify-center bg-white text-black dark:bg-black dark:text-white">
-        <TextAnimate animation="blurIn" as="h1">
-          Loading.....
-        </TextAnimate>
-      </div>
-    );
-
   return (
     <div className="min-h-screen w-full bg-white pt-16 md:pt-0 dark:bg-black">
-      {data?.musicPlayer && <SimpleVideoPlayer />}
-
       <div className="mx-auto flex h-full w-full max-w-6xl flex-col gap-36">
         <AnimatedSection id="profile" className="scroll-mt-24">
           <ProfileTemplates />
@@ -44,11 +53,9 @@ export default function HomePage() {
           <SocialMediaTemplates />
         </AnimatedSection>
 
-        {data?.portofolio && (
-          <AnimatedSection id="project" className="scroll-mt-24">
-            <PortofolioTemplates />
-          </AnimatedSection>
-        )}
+        <AnimatedSection id="project" className="scroll-mt-24">
+          <PortofolioTemplates />
+        </AnimatedSection>
 
         <AnimatedSection id="skill" className="scroll-mt-24">
           <SkillTemplates />

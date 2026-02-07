@@ -1,6 +1,6 @@
 'use client';
 
-import { useTheme } from '../providers/ThemeProvider';
+import { useTheme } from 'next-themes';
 
 export default function MarqueeText({ title }: { title: string }) {
   const { theme } = useTheme();

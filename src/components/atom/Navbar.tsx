@@ -4,6 +4,7 @@ import { classNames } from '@/utils/classNames';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { AnimatedThemeToggler } from '../ui/animated-theme-toggler';
 import { AuroraText } from '../ui/aurora-text';
 import ThemeToggle from './ThemeToggle';
 
@@ -94,7 +95,7 @@ export default function Navbar() {
         </button>
 
         <div className="hidden md:block">
-          <ThemeToggle />
+          <AnimatedThemeToggler />
         </div>
       </div>
 

@@ -64,3 +64,8 @@ html {
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+::view-transition-old(root), ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}

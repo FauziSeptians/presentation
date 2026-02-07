@@ -1,5 +1,6 @@
 import LayoutProvider from '@/components/providers/LayoutProvider';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
+import { metadataValue } from '@/data/meta';
 import { classNames } from '@/utils/classNames';
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
@@ -12,46 +13,7 @@ const poppins = Poppins({
   weight: ['400', '500', '600', '700'],
 });
 
-export const metadata: Metadata = {
-  title: 'Fauziseptians – Sotware Developer',
-  description:
-    'Portofolio digital Fauzi Septians, seorang software developer yang fokus pada desain modern, performa tinggi, dan pengalaman pengguna yang optimal.',
-  keywords: [
-    'software developer',
-    'FE',
-    'muhammad fauzi septiana putra',
-    'Fauziseptians',
-    'Fauzi Septians',
-    'Frontend Developer',
-    'Web Developer',
-    'React',
-    'Next.js',
-    'Tailwind CSS',
-    'Portofolio Developer',
-    'UI Engineer',
-    'JavaScript',
-    'CSS',
-  ],
-  authors: [{ name: 'Fauzi Septians', url: 'https://fauziseptians.com' }],
-  creator: 'Fauzi Septians',
-  openGraph: {
-    title: 'Fauziseptians – Software Developer',
-    description:
-      'Lihat karya dan pengalaman Fauzi Septians sebagai software developer yang berfokus pada UI modern dan performa tinggi.',
-    url: 'https://fauziseptians.com',
-    siteName: 'Fauziseptians Portfolio',
-    images: [
-      {
-        url: 'https://fauziseptians.com/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Fauzi Septians Portfolio',
-      },
-    ],
-    locale: 'id_ID',
-    type: 'website',
-  },
-};
+export const metadata: Metadata = metadataValue;
 
 export default function RootLayout({
   children,
@@ -61,7 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en" translate="yes">
       <body className={classNames(poppins.variable, 'antialiased')}>
-        <ThemeProvider>
+        <ThemeProvider
+          attribute="data-theme"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
           <LayoutProvider>{children}</LayoutProvider>
         </ThemeProvider>
       </body>

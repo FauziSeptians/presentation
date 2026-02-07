@@ -31,6 +31,7 @@ export default function ProfileTemplates(
           alt="zoro"
           width={390}
           height={100}
+          priority={true}
           className="absolute z-30 rounded-[45%]"
         />
         <div className="absolute z-0 h-[400px] w-[400px] rounded-[40%] bg-gradient-to-br from-[#ffd319] via-[#ff2975] to-[#8c1eff] opacity-60 blur-3xl" />
