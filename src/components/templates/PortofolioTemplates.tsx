@@ -1,9 +1,9 @@
 'use client';
 
+import { useTheme } from 'next-themes';
 import { HtmlHTMLAttributes, useState } from 'react';
 import portofolio from '../../data/portofolio-data.json';
 import { CardPortofolio } from '../atom/Card';
-import { useTheme } from '../providers/ThemeProvider';
 import { RainbowButton } from '../ui/rainbow-button';
 import { RetroGrid } from '../ui/retro-grid';
 
