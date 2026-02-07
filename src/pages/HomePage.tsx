@@ -1,16 +1,41 @@
 'use client';
 
 import AnimatedSection from '@/components/atom/AnimatedSection';
-import BlogTemplates from '@/components/templates/BlogTemplates';
-import CertificationTemplates from '@/components/templates/CertificationTemplates';
-import FooterTemplates from '@/components/templates/FooterTemplates';
 import HireMeTemplates from '@/components/templates/HireMeTemplates';
-import PortofolioTemplates from '@/components/templates/PortofolioTemplates';
 import ProfileTemplates from '@/components/templates/ProfileTemplates';
-import PromotionTemplates from '@/components/templates/PromotionTemplates';
-import SkillTemplates from '@/components/templates/SkillTemplates';
-import SocialMediaTemplates from '@/components/templates/SocialMediaTemplates';
-import SpacerTextTemplate from '@/components/templates/SpacerTextTemplate';
+import dynamic from 'next/dynamic';
+
+const SocialMediaTemplates = dynamic(
+  () => import('@/components/templates/SocialMediaTemplates')
+);
+
+const PortofolioTemplates = dynamic(
+  () => import('@/components/templates/PortofolioTemplates')
+);
+
+const SkillTemplates = dynamic(
+  () => import('@/components/templates/SkillTemplates')
+);
+
+const PromotionTemplates = dynamic(
+  () => import('@/components/templates/PromotionTemplates')
+);
+
+const CertificationTemplates = dynamic(
+  () => import('@/components/templates/CertificationTemplates')
+);
+
+const BlogTemplates = dynamic(
+  () => import('@/components/templates/BlogTemplates')
+);
+
+const SpacerTextTemplate = dynamic(
+  () => import('@/components/templates/SpacerTextTemplate')
+);
+
+const FooterTemplates = dynamic(
+  () => import('@/components/templates/FooterTemplates')
+);
 
 export default function HomePage() {
   return (

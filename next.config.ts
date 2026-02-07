@@ -1,6 +1,13 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  turbopack: {
+    resolveAlias: {
+      fs: {
+        browser: './empty.ts',
+      },
+    },
+  },
   webpack(config) {
     const fileLoaderRule = config.module.rules.find(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
