@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextjs-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nextjs
+  template:
+    metadata:
+      labels:
+        app: nextjs
+    spec:
+      containers:
+        - name: nextjs
+          # Gunakan variabel hanya untuk username agar file ini reusable
+          image: muhammadfauzi/nextjs-app:latest
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              memory: '256Mi'
+              cpu: '250m'
+            limits:
+              memory: '512Mi' # Batas aman untuk server pribadi
+              cpu: '500m' # Biar nggak narik semua core server
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nextjs-service
+spec:
+  type: NodePort
+  selector:
+    app: nextjs
+  ports:
+    - port: 5000 # Port yang kamu akses dari browser
+      targetPort: 3000 # Port dalam container
+      nodePort: 30500 # Port konsisten di IP Minikube
