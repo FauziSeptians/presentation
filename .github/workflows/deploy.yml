@@ -1,4 +1,4 @@
-name: Deploy Next.js with Dockerfile
+name: Deploy Next.js with Minikube
 
 on:
   push:
@@ -27,37 +27,45 @@ jobs:
           echo "NEXT_PUBLIC_FIREBASE_APIID=${{ secrets.NEXT_PUBLIC_FIREBASE_APIID }}" >> .env.staging
           echo "NEXT_PUBLIC_FIREBASE_MEASUREMENTID=${{ secrets.NEXT_PUBLIC_FIREBASE_MEASUREMENTID }}" >> .env.staging
 
-      - name: Build Docker image with staging env
+      - name: Build Docker image
         run: docker build --build-arg ENV_FILE=.env.staging -t nextjs-app .
 
       - name: Login to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-      - name: Tag and Push Image to Docker Hub
+      - name: Tag and Push Image
         run: |
           docker tag nextjs-app ${{ secrets.DOCKER_USERNAME }}/nextjs-app:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/nextjs-app:latest
 
-      - name: Pull image on server
+      - name: Copy K8s Manifest to Server
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          source: 'k8s/deployment.yml'
+          target: '/home/${{ secrets.SERVER_USER }}/deployments/'
+
+      - name: Deploy to Minikube via SSH
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
-          timeout: 30m 
+          timeout: 15m
           script: |
+            # 1. Pastikan folder & Minikube siap
+            minikube status || minikube start --driver=docker
+
+            # 2. Login Docker di dalam server agar bisa pull private image (jika ada)
             sudo docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
-            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/nextjs-app:latest
 
-      - name: Run container on server
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          timeout: 5m
-          script: |
-            sudo docker stop nextjs-app || true
-            sudo docker rm nextjs-app || true
-            sudo docker run -d --name nextjs-app -p 5000:3000 ${{ secrets.DOCKER_USERNAME }}/nextjs-app:latest
+            # 3. Tarik image terbaru ke lingkungan Minikube
+            minikube image pull ${{ secrets.DOCKER_USERNAME }}/nextjs-app:latest
 
+            # 4. Terapkan konfigurasi Kubernetes
+            kubectl apply -f /home/${{ secrets.SERVER_USER }}/deployments/k8s/deployment.yml
+
+            # 5. Rolling Update (Restart Pod)
+            kubectl rollout restart deployment nextjs-app
