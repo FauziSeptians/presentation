@@ -1,12 +1,14 @@
+'use client';
+
 import { cn } from '@/lib/utils';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 interface RetroGridProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   angle?: number;
   cellSize?: number;
   opacity?: number;
-  lightLineColor?: string;
-  darkLineColor?: string;
 }
 
 export function RetroGrid({
@@ -14,16 +16,22 @@ export function RetroGrid({
   angle = 65,
   cellSize = 60,
   opacity = 0.5,
-  lightLineColor = 'gray',
-  darkLineColor = 'gray',
   ...props
 }: RetroGridProps) {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const lineColor = mounted && theme === 'dark' ? 'white' : 'black';
+
   const gridStyles = {
     '--grid-angle': `${angle}deg`,
     '--cell-size': `${cellSize}px`,
     '--opacity': opacity,
-    '--light-line': lightLineColor,
-    '--dark-line': darkLineColor,
+    '--line-color': lineColor,
   } as React.CSSProperties;
 
   return (
@@ -37,11 +45,7 @@ export function RetroGrid({
       {...props}
     >
       <div className="absolute inset-0 [transform:rotateX(var(--grid-angle))]">
-        {/* Light mode grid */}
-        <div className="animate-grid [inset:0%_0px] [margin-left:-200%] block [height:300vh] [width:600vw] [transform-origin:100%_0_0] [background-image:linear-gradient(to_right,var(--light-line)_1px,transparent_0),linear-gradient(to_bottom,var(--light-line)_1px,transparent_0)] [background-size:var(--cell-size)_var(--cell-size)] [background-repeat:repeat] dark:hidden" />
-
-        {/* Dark mode grid */}
-        <div className="animate-grid [inset:0%_0px] [margin-left:-200%] hidden [height:300vh] [width:600vw] [transform-origin:100%_0_0] [background-image:linear-gradient(to_right,var(--dark-line)_1px,transparent_0),linear-gradient(to_bottom,var(--dark-line)_1px,transparent_0)] [background-size:var(--cell-size)_var(--cell-size)] [background-repeat:repeat] dark:block" />
+        <div className="animate-grid [inset:0%_0px] [margin-left:-200%] block [height:300vh] [width:600vw] [transform-origin:100%_0_0] [background-image:linear-gradient(to_right,var(--line-color)_1px,transparent_0),linear-gradient(to_bottom,var(--line-color)_1px,transparent_0)] [background-size:var(--cell-size)_var(--cell-size)] [background-repeat:repeat]" />
       </div>
 
       {/* Gradient overlay */}

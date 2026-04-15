@@ -1,8 +1,7 @@
 import { HtmlHTMLAttributes } from 'react';
 import blog from '../../data/blog-data.json';
-import Pagination from '../atom/Pagination';
+import PaginatedBlogList from '../molecules/PaginatedBlogList';
 import { AuroraText } from '../ui/aurora-text';
-import { HeroVideoDialog } from '../ui/hero-video-dialog';
 
 export default function BlogTemplates(
   props?: HtmlHTMLAttributes<HTMLDivElement>
@@ -13,22 +12,7 @@ export default function BlogTemplates(
         My <AuroraText>Blog</AuroraText>{' '}
       </h1>
       <div className="h-full">
-        <Pagination data={blog}>
-          {(data) => (
-            <div className="flex min-h-[220px] flex-col gap-4 md:grid md:grid-cols-3">
-              {data.map((item) => (
-                <HeroVideoDialog
-                  key={item.videoSrc}
-                  className="!h-full"
-                  animationStyle="from-center"
-                  videoSrc={item.videoSrc}
-                  thumbnailSrc={item.thumbnailSrc}
-                  thumbnailAlt={item.thumbnailSrc}
-                />
-              ))}
-            </div>
-          )}
-        </Pagination>
+        <PaginatedBlogList data={blog} />
       </div>
     </div>
   );

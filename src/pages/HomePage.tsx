@@ -1,41 +1,14 @@
-'use client';
-
 import AnimatedSection from '@/components/atom/AnimatedSection';
 import HireMeTemplates from '@/components/templates/HireMeTemplates';
 import ProfileTemplates from '@/components/templates/ProfileTemplates';
-import dynamic from 'next/dynamic';
-
-const SocialMediaTemplates = dynamic(
-  () => import('@/components/templates/SocialMediaTemplates')
-);
-
-const PortofolioTemplates = dynamic(
-  () => import('@/components/templates/PortofolioTemplates')
-);
-
-const SkillTemplates = dynamic(
-  () => import('@/components/templates/SkillTemplates')
-);
-
-const PromotionTemplates = dynamic(
-  () => import('@/components/templates/PromotionTemplates')
-);
-
-const CertificationTemplates = dynamic(
-  () => import('@/components/templates/CertificationTemplates')
-);
-
-const BlogTemplates = dynamic(
-  () => import('@/components/templates/BlogTemplates')
-);
-
-const SpacerTextTemplate = dynamic(
-  () => import('@/components/templates/SpacerTextTemplate')
-);
-
-const FooterTemplates = dynamic(
-  () => import('@/components/templates/FooterTemplates')
-);
+import SocialMediaTemplates from '@/components/templates/SocialMediaTemplates';
+import PortofolioTemplates from '@/components/templates/PortofolioTemplates';
+import SkillTemplates from '@/components/templates/SkillTemplates';
+import PromotionTemplates from '@/components/templates/PromotionTemplates';
+import CertificationTemplates from '@/components/templates/CertificationTemplates';
+import BlogTemplates from '@/components/templates/BlogTemplates';
+import SpacerTextTemplate from '@/components/templates/SpacerTextTemplate';
+import FooterTemplates from '@/components/templates/FooterTemplates';
 
 export default function HomePage() {
   return (
