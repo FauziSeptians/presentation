@@ -1,5 +1,3 @@
-'use client';
-
 import { HtmlHTMLAttributes } from 'react';
 import OptimizedImage from '../atom/Image';
 import Profile, { ProfileProps } from '../atom/Profile';

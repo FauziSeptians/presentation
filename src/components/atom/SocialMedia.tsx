@@ -1,3 +1,5 @@
+'use client';
+
 import { useToastStore } from '@/stores/useToastStore';
 import { classNames } from '@/utils/classNames';
 import { MotionValue, useMotionValueEvent } from 'framer-motion';

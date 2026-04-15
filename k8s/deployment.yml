@@ -36,6 +36,6 @@ spec:
   selector:
     app: nextjs
   ports:
-    - port: 5000 # Port yang kamu akses dari browser
-      targetPort: 3000 # Port dalam container
-      nodePort: 5000 # Port konsisten di IP Minikube
+    - port: 5000 # Port internal cluster
+      targetPort: 3000 # Port aplikasi di container
+      nodePort: 30500

@@ -1,3 +1,5 @@
+'use client';
+
 import { classNames } from '@/utils/classNames';
 import { ImageIcon } from 'lucide-react';
 import Image from 'next/image';

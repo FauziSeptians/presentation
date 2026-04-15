@@ -1,3 +1,5 @@
+'use client';
+
 import { HtmlHTMLAttributes } from 'react';
 import { skillsData } from '../../data/skill-data';
 import SkillCard from '../molecules/SkillCard';

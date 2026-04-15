@@ -1,3 +1,5 @@
+'use client';
+
 import { useDownloadPdf } from '@/hooks/useDownloadPdf';
 import { useToastStore } from '@/stores/useToastStore';
 import {
