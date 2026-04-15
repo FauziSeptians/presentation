@@ -1,3 +1,5 @@
+'use client';
+
 // components/SkillCard.tsx
 import { cn } from '@/lib/utils';
 import OptimizedImage from '../atom/Image';
