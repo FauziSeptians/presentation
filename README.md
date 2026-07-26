@@ -30,5 +30,5 @@ Explore my portfolio at [fauziseptians.com](https://fauziseptians.com/) — feat
 
 Check out my certifications on [fauziseptians.com/#certification](https://fauziseptians.com/#certification) — covering web development, cloud, and software engineering fundamentals.
 
---
+----
 
