@@ -75,7 +75,7 @@ export default function PromotionTemplates() {
                 className="!h-full w-full cursor-pointer md:w-auto"
                 onClick={() => {
                   download(
-                    '/files/cv.pdf',
+                    '/files/cv_new.pdf',
                     'CV_Muhammad-Fauzi-Septiana-Putra.pdf'
                   );
                   showToast('Download successfully!');
