@@ -1,14 +1,15 @@
 import AnimatedSection from '@/components/atom/AnimatedSection';
-import HireMeTemplates from '@/components/templates/HireMeTemplates';
-import ProfileTemplates from '@/components/templates/ProfileTemplates';
-import SocialMediaTemplates from '@/components/templates/SocialMediaTemplates';
-import PortofolioTemplates from '@/components/templates/PortofolioTemplates';
-import SkillTemplates from '@/components/templates/SkillTemplates';
-import PromotionTemplates from '@/components/templates/PromotionTemplates';
-import CertificationTemplates from '@/components/templates/CertificationTemplates';
 import BlogTemplates from '@/components/templates/BlogTemplates';
-import SpacerTextTemplate from '@/components/templates/SpacerTextTemplate';
+import CertificationTemplates from '@/components/templates/CertificationTemplates';
+import ExperienceTemplates from '@/components/templates/ExperienceTemplates';
 import FooterTemplates from '@/components/templates/FooterTemplates';
+import HireMeTemplates from '@/components/templates/HireMeTemplates';
+import PortofolioTemplates from '@/components/templates/PortofolioTemplates';
+import ProfileTemplates from '@/components/templates/ProfileTemplates';
+import PromotionTemplates from '@/components/templates/PromotionTemplates';
+import SkillTemplates from '@/components/templates/SkillTemplates';
+import SocialMediaTemplates from '@/components/templates/SocialMediaTemplates';
+import SpacerTextTemplate from '@/components/templates/SpacerTextTemplate';
 
 export default function HomePage() {
   return (
@@ -24,6 +25,10 @@ export default function HomePage() {
 
         <AnimatedSection id="social" className="scroll-mt-24">
           <SocialMediaTemplates />
+        </AnimatedSection>
+
+         <AnimatedSection id="experience" className="scroll-mt-24">
+          <ExperienceTemplates />
         </AnimatedSection>
 
         <AnimatedSection id="project" className="scroll-mt-24">

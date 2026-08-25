@@ -8,7 +8,14 @@ import { AnimatedThemeToggler } from '../ui/animated-theme-toggler';
 import { AuroraText } from '../ui/aurora-text';
 import ThemeToggle from './ThemeToggle';
 
-const sections = ['profile', 'social', 'project', 'skill', 'certification'];
+const sections = [
+  'profile',
+  'social',
+  'experience',
+  'project',
+  'skill',
+  'certification',
+];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
